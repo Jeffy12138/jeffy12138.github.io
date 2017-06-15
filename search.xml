@@ -13,8 +13,19 @@
       </tags>
   </entry>
   <entry>
+    <title><![CDATA[底部导航栏凸起效果]]></title>
+    <url>%2F2017%2F03%2F15%2FAndroid%E5%BA%95%E9%83%A8%E5%AF%BC%E8%88%AA%E6%A0%8F%E5%87%B8%E8%B5%B7%E6%95%88%E6%9E%9C%2F</url>
+    <content type="text"><![CDATA[先上效果图 此底部导航栏的布局很简单，其中用到的最主要的就是在突出布局的父布局设置android:clipChildren为false即可，默认为true，android:clipChildren的意思：是否限制子View在其范围内，然后设置突出布局android:layout_gravity=”bottom”就可以了 最后贴出代码，使用RadioGroup+RadioButton实现的底部导航 &lt;LinearLayout xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot; xmlns:tools=&quot;http://schemas.android.com/tools&quot; android:id=&quot;@+id/activity_main&quot; android:layout_width=&quot;match_parent&quot; android:layout_height=&quot;match_parent&quot; android:clipChildren=&quot;false&quot; android:orientation=&quot;vertical&quot;&gt; &lt;ViewPager android:id=&quot;@+id/vp_content&quot; android:layout_width=&quot;match_parent&quot; android:layout_height=&quot;0dp&quot; android:layout_weight=&quot;1&quot;&gt; &lt;/ViewPager&gt; &lt;View android:id=&quot;@+id/div_view&quot; android:layout_width=&quot;fill_parent&quot; android:layout_height=&quot;1.0px&quot; android:background=&quot;#d9d9d9&quot; /&gt; &lt;RadioGroup android:id=&quot;@+id/rg_group&quot; android:layout_width=&quot;match_parent&quot; android:layout_height=&quot;48dp&quot; android:layout_gravity=&quot;bottom&quot; android:background=&quot;@color/apTabBackground&quot; android:clipChildren=&quot;false&quot; android:elevation=&quot;8dp&quot; android:gravity=&quot;center&quot; android:orientation=&quot;horizontal&quot;&gt; &lt;RadioButton android:id=&quot;@+id/first&quot; style=&quot;@style/Bottom_Tab_Style&quot; android:checked=&quot;true&quot; android:drawableTop=&quot;@drawable/first_selector&quot; android:text=&quot;首页&quot; android:textSize=&quot;11sp&quot; /&gt; &lt;RadioButton android:id=&quot;@+id/second&quot; style=&quot;@style/Bottom_Tab_Style&quot; android:drawableTop=&quot;@drawable/second_selector&quot; android:text=&quot;学堂&quot; android:textSize=&quot;11sp&quot; /&gt; &lt;RadioButton android:id=&quot;@+id/third&quot; style=&quot;@style/Bottom_Tab_Style1&quot; android:layout_gravity=&quot;bottom&quot; android:clipChildren=&quot;false&quot; android:drawableBottom=&quot;@drawable/third_selector&quot; android:textSize=&quot;11sp&quot; /&gt; &lt;RadioButton android:id=&quot;@+id/fourth&quot; style=&quot;@style/Bottom_Tab_Style&quot; android:drawableTop=&quot;@drawable/fourth_selector&quot; android:text=&quot;互动&quot; android:textSize=&quot;11sp&quot; /&gt; &lt;RadioButton android:id=&quot;@+id/fifth&quot; style=&quot;@style/Bottom_Tab_Style&quot; android:drawableTop=&quot;@drawable/fifth_selector&quot; android:text=&quot;我&quot; android:textSize=&quot;11sp&quot; /&gt; &lt;/RadioGroup&gt; &lt;/LinearLayout&gt;]]></content>
+      <categories>
+        <category>android</category>
+      </categories>
+      <tags>
+        <tag>android</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[你好，技术博客]]></title>
-    <url>%2F2017%2F05%2F08%2F%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E6%96%87%E7%AB%A0%2F</url>
+    <url>%2F2017%2F03%2F08%2F%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E6%96%87%E7%AB%A0%2F</url>
     <content type="text"><![CDATA[你好，欢迎来到我的个人技术博客。第一次写博客，请多多关照]]></content>
       <categories>
         <category>随笔</category>
