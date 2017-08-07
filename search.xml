@@ -15,7 +15,7 @@
   <entry>
     <title><![CDATA[MPAndroidChart库的viki翻译]]></title>
     <url>%2F2017%2F08%2F06%2FMPAndroidChart%E6%96%87%E6%A1%A3%E7%9A%84viki%E7%BF%BB%E8%AF%91%2F</url>
-    <content type="text"><![CDATA[欢迎使用MPAndroidChart库的文档。 文档章节 入门 与图表的相互作用 突出显示值 轴（AxisBase） XAxis YAxis 设置数据 设置颜色 格式化数据值（ValueFormatter） 格式化轴值（AxisValueFormatter） 一般设置和样式 具体设置和样式 传说 动态和实时数据 修改视口 动画 MarkerView（Popup View） ChartData类 ChartData子类 DataSet类（一般的DataSet样式） DataSet子类（特定DataSet样式） ViewPortHandler 定制填充线位置（FillFormatter） 保镖 Realm.io手机数据库 创建自己的（自定义）DataSet 其他（更有用的东西） 其他信息 使用此库的项目（参考） 性能]]></content>
+    <content type="text"><![CDATA[欢迎使用MPAndroidChart库的文档。 文档章节 https://jeffy12138.github.io/2017/08/07/%E5%85%A5%E9%97%A8/ 与图表的相互作用 突出显示值 轴（AxisBase） XAxis YAxis 设置数据 设置颜色 格式化数据值（ValueFormatter） 格式化轴值（AxisValueFormatter） 一般设置和样式 具体设置和样式 传说 动态和实时数据 修改视口 动画 MarkerView（Popup View） ChartData类 ChartData子类 DataSet类（一般的DataSet样式） DataSet子类（特定DataSet样式） ViewPortHandler 定制填充线位置（FillFormatter） 保镖 Realm.io手机数据库 创建自己的（自定义）DataSet 其他（更有用的东西） 其他信息 使用此库的项目（参考） 性能]]></content>
       <categories>
         <category>Android</category>
       </categories>
