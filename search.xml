@@ -1,6 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[1.入门]]></title>
+    <url>%2F2017%2F08%2F07%2F%E5%85%A5%E9%97%A8%2F</url>
+    <content type="text"><![CDATA[本章介绍使用此库的基本设置。 添加依赖项作为第一步，将这个库的依赖项添加到您的项目中。在这个存储库的使用部分描述了如何做到这一点。Gradle是使用此库作为依赖关系的推荐方法。 创建视图 对于使用a LineChart, BarChart, ScatterChart, CandleStickChart, PieChart, BubbleChart or RadarChart ，在.xml中定义它： &lt;com.github.mikephil.charting.charts.LineChart android:id=&quot;@+id/chart&quot; android:layout_width=&quot;match_parent&quot; android:layout_height=&quot;match_parent&quot; /&gt; 然后从你的Activity，Fragment或其它布局检索： // 在这个例子当中 LineChart 是在 xml重初始化的 LineChart chart = (LineChart) findViewById(R.id.chart); 或者在代码中创建它（然后将其添加到布局）： //以编程方式创建一个LineChart LineChart chart = new LineChart(Context); //取得在XML定义的布局 RelativeLayout rl = (RelativeLayout) findViewById(R.id.relativeLayout); rl.add(chart); //添加以编程方式创建的图表 添加数据拥有图表实例后，您可以创建数据并将其添加到图表中。此示例使用LineChart类，其中Entry表示图表中具有x和y坐标的单个条目。其他图表类型，例如BarChart使用其他类（例如BarEntry）。 要将数据添加到图表中，应将每个数据对象包含到Entry对象中，如下所示： YourData[] dataObjects = ...; List&lt;Entry&gt; entries = new ArrayList&lt;Entry&gt;(); for (YourData data : dataObjects) { //将您的数据转换为Entry对象 entries.add(new Entry(data.getValueX(), data.getValueY())); } 作为下一步，您需要将你创建的List对象添加到一个LineDataSet对象。DataSet对象持有属于一类的数据，并允许对该数据进行单独样式。如果启用，下面使用的“标签”只有一个描述性的目的，并显示在Legend中。 LineDataSet dataSet = new LineDataSet（entries，“ Label ”）; //添加条目到数据集 dataSet.setColor（...）; dataSet.setValueTextColor（...）; //造型，... 作为最后一步，您需要将创建的LineDataSet对象添加到LineData对象。该对象包含由Chart实例表示的所有数据，并允许进一步的设置样式。创建数据对象后，可以将其设置给图表并刷新： LineData lineData = new LineData(dataSet); chart.setData(lineData); chart.invalidate(); // refresh 上述情况只是一个非常基本的设置。有关更详细的说明，请参阅设置数据部分，其中介绍了根据示例如何将数据添加到各种类型Chart。 造型有关图表和数据的设置和样式的信息，请访问常规设置和样式部分。关于个别图表类型的更具体的样式和设置，请查看具体设置和样式 wiki页面。]]></content>
+      <categories>
+        <category>Android</category>
+      </categories>
+      <tags>
+        <tag>MPAndroidChart</tag>
+        <tag>K线图</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[MPAndroidChart库的viki翻译]]></title>
     <url>%2F2017%2F08%2F06%2FMPAndroidChart%E6%96%87%E6%A1%A3%E7%9A%84viki%E7%BF%BB%E8%AF%91%2F</url>
     <content type="text"><![CDATA[欢迎使用MPAndroidChart库的文档。 文档章节 入门 与图表的相互作用 突出显示值 轴（AxisBase） XAxis YAxis 设置数据 设置颜色 格式化数据值（ValueFormatter） 格式化轴值（AxisValueFormatter） 一般设置和样式 具体设置和样式 传说 动态和实时数据 修改视口 动画 MarkerView（Popup View） ChartData类 ChartData子类 DataSet类（一般的DataSet样式） DataSet子类（特定DataSet样式） ViewPortHandler 定制填充线位置（FillFormatter） 保镖 Realm.io手机数据库 创建自己的（自定义）DataSet 其他（更有用的东西） 其他信息 使用此库的项目（参考） 性能]]></content>
