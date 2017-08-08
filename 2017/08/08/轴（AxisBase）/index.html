@@ -90,17 +90,17 @@
 
 
 
-<meta name="description" content="该库允许您完全自定义与图表视图的触摸（和手势）交互，并通过回调方法对交互作出反应。 启用/禁用互动 setTouchEnabled(boolean enabled)：允许启用/禁用与图表的所有可能的触摸交互。 setDragEnabled(boolean enabled)：启用/禁用图表的拖动（平移）。 setScaleEnabled(boolean enabled)：启用/禁用两个轴上图表的缩放">
+<meta name="description" content="这个wiki页面的重点介绍AxisBase类，它是XAxis（X轴）和YAxis（Y轴）两者的基类，在v2.0.0中引入。 下面提到的以下方法可以应用于两个轴。 这个轴类允许特定的样式，包括（可以包括）以下组件/部件：  标签（以垂直（y轴）或水平（x轴）对齐绘制），其中包含轴描述值 所谓的“轴线”被直接绘制在标签上并与之平行 “网格线”，各自源自水平方向的轴标签 LimitLines允许提供特殊">
 <meta name="keywords" content="MPAndroidChart,K线图">
 <meta property="og:type" content="article">
-<meta property="og:title" content="2.与图表的互动">
-<meta property="og:url" content="http://jeffy12138.github.io/2017/08/08/与图表的互动/index.html">
+<meta property="og:title" content="4.轴（AxisBase）">
+<meta property="og:url" content="http://jeffy12138.github.io/2017/08/08/轴（AxisBase）/index.html">
 <meta property="og:site_name" content="Jeffy&#39;s Blog">
-<meta property="og:description" content="该库允许您完全自定义与图表视图的触摸（和手势）交互，并通过回调方法对交互作出反应。 启用/禁用互动 setTouchEnabled(boolean enabled)：允许启用/禁用与图表的所有可能的触摸交互。 setDragEnabled(boolean enabled)：启用/禁用图表的拖动（平移）。 setScaleEnabled(boolean enabled)：启用/禁用两个轴上图表的缩放">
-<meta property="og:updated_time" content="2017-08-08T02:28:06.550Z">
+<meta property="og:description" content="这个wiki页面的重点介绍AxisBase类，它是XAxis（X轴）和YAxis（Y轴）两者的基类，在v2.0.0中引入。 下面提到的以下方法可以应用于两个轴。 这个轴类允许特定的样式，包括（可以包括）以下组件/部件：  标签（以垂直（y轴）或水平（x轴）对齐绘制），其中包含轴描述值 所谓的“轴线”被直接绘制在标签上并与之平行 “网格线”，各自源自水平方向的轴标签 LimitLines允许提供特殊">
+<meta property="og:updated_time" content="2017-08-08T05:57:48.502Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="2.与图表的互动">
-<meta name="twitter:description" content="该库允许您完全自定义与图表视图的触摸（和手势）交互，并通过回调方法对交互作出反应。 启用/禁用互动 setTouchEnabled(boolean enabled)：允许启用/禁用与图表的所有可能的触摸交互。 setDragEnabled(boolean enabled)：启用/禁用图表的拖动（平移）。 setScaleEnabled(boolean enabled)：启用/禁用两个轴上图表的缩放">
+<meta name="twitter:title" content="4.轴（AxisBase）">
+<meta name="twitter:description" content="这个wiki页面的重点介绍AxisBase类，它是XAxis（X轴）和YAxis（Y轴）两者的基类，在v2.0.0中引入。 下面提到的以下方法可以应用于两个轴。 这个轴类允许特定的样式，包括（可以包括）以下组件/部件：  标签（以垂直（y轴）或水平（x轴）对齐绘制），其中包含轴描述值 所谓的“轴线”被直接绘制在标签上并与之平行 “网格线”，各自源自水平方向的轴标签 LimitLines允许提供特殊">
 
 
 
@@ -130,13 +130,13 @@
 
 
 
-  <link rel="canonical" href="http://jeffy12138.github.io/2017/08/08/与图表的互动/"/>
+  <link rel="canonical" href="http://jeffy12138.github.io/2017/08/08/轴（AxisBase）/"/>
 
 
 
 
 
-  <title>2.与图表的互动 | Jeffy's Blog</title>
+  <title>4.轴（AxisBase） | Jeffy's Blog</title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -323,7 +323,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://jeffy12138.github.io/2017/08/08/与图表的互动/">
+    <link itemprop="mainEntityOfPage" href="http://jeffy12138.github.io/2017/08/08/轴（AxisBase）/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="吴纪飞">
@@ -340,7 +340,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">2.与图表的互动</h1>
+          <h1 class="post-title" itemprop="name headline">4.轴（AxisBase）</h1>
         
 
         <div class="post-meta">
@@ -352,7 +352,7 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-08-08T17:10:04+08:00">
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-08-08T19:17:09+08:00">
                 2017-08-08
               </time>
             
@@ -414,93 +414,68 @@
       
 
       
-        <p>该库允许您完全自定义与图表视图的触摸（和手势）交互，并通过回调方法对交互作出反应。</p>
-<h2 id="启用-禁用互动"><a href="#启用-禁用互动" class="headerlink" title="启用/禁用互动"></a>启用/禁用互动</h2><ul>
-<li>setTouchEnabled(boolean enabled)：允许启用/禁用与图表的所有可能的触摸交互。</li>
-<li>setDragEnabled(boolean enabled)：启用/禁用图表的拖动（平移）。</li>
-<li>setScaleEnabled(boolean enabled)：启用/禁用两个轴上图表的缩放。</li>
-<li>setScaleXEnabled(boolean enabled)：启用/禁用x轴上的缩放。</li>
-<li>setScaleYEnabled(boolean enabled)：启用/禁用y轴上的缩放。</li>
-<li>setPinchZoom(boolean enabled)：如果设置为true，则可以使用缩小缩放。如果禁用，可以单独放大x轴和y轴。</li>
-<li>setDoubleTapToZoomEnabled(boolean enabled)：将其设置为false可禁止通过双击来缩放图表。</li>
+        <p>这个wiki页面的重点介绍AxisBase类，它是XAxis（X轴）和YAxis（Y轴）两者的基类，在v2.0.0中引入。</p>
+<p>下面提到的以下方法可以应用于两个轴。</p>
+<p>这个轴类允许特定的样式，包括（可以包括）以下组件/部件：</p>
+<ul>
+<li>标签（以垂直（y轴）或水平（x轴）对齐绘制），其中包含轴描述值</li>
+<li>所谓的“轴线”被直接绘制在标签上并与之平行</li>
+<li>“网格线”，各自源自水平方向的轴标签</li>
+<li>LimitLines允许提供特殊信息，如边界或约束</li>
+</ul>
+<h2 id="控制应绘制哪些零件（轴）"><a href="#控制应绘制哪些零件（轴）" class="headerlink" title="控制应绘制哪些零件（轴）"></a>控制应绘制哪些零件（轴）</h2><ul>
+<li>setEnabled(boolean enabled)：设置轴启用或禁用。如果禁用，无论任何其他设置如何，都不会绘制轴的任何部分。</li>
+<li>setDrawLabels(boolean enabled)：将其设置为true可以绘制轴的标签。</li>
+<li>setDrawAxisLine(boolean enabled)：如果沿着轴（轴线）的线应该被绘制，则将其设置为true。</li>
+<li>setDrawGridLines(boolean enabled)：将其设置为true可以绘制轴的网格线。</li>
 </ul>
 <a id="more"></a>
-<h2 id="图表闪烁-减速"><a href="#图表闪烁-减速" class="headerlink" title="图表闪烁/减速"></a>图表闪烁/减速</h2><ul>
-<li>setDragDecelerationEnabled(boolean enabled)：如果设置为true，图表在触摸后继续滚动。默认值：true。</li>
-<li>setDragDecelerationFrictionCoef(float coef)：减速摩擦系数在[0; 1]间隔，较高的值表示速度将缓慢降低，例如，如果设置为0，它将立即停止。1是无效值，将自动转换为0.9999。</li>
+<h2 id="自定义轴范围（最小-最大）"><a href="#自定义轴范围（最小-最大）" class="headerlink" title="自定义轴范围（最小/最大）"></a>自定义轴范围（最小/最大）</h2><ul>
+<li>setAxisMaximum(float max)：设置此轴的自定义最大值。如果设置，此值将不会根据提供的数据自动计算。</li>
+<li>resetAxisMaximum()：调用此命令来撤销先前设置的最大值。通过这样做，您将再次允许轴自动计算它的最大值。</li>
+<li>setAxisMinimum(float min)：设置此轴的自定义最小值。如果设置，此值将不会根据提供的数据自动计算。</li>
+<li>resetAxisMinimum()：调用此命令来撤消先前设置的最小值。通过这样做，您将再次允许轴自动计算它的最小值。</li>
+<li>setStartAtZero(boolean enabled)：已弃用 - 使用setAxisMinValue(…)或setAxisMaxValue(…)替代。</li>
+<li>setInverted(boolean enabled)：如果设置为true，则该轴将反转，这意味着最高值将在底部，最低值在顶部。</li>
+<li>setSpaceTop(float percent)：与轴上的最高值相比，设置图表中最高值的顶部间距（以总轴范围的百分比表示）。</li>
+<li>setSpaceBottom(float percent)：与轴上的最低值相比，设置图表中最低值的底部间距（以总轴范围的百分比表示）。</li>
+<li>setShowOnlyMinMax(boolean enabled)：如果启用，该轴将仅显示其最小值和最大值。这将忽略/覆盖定义的标签计数（如果不强制）。</li>
+<li>setLabelCount(int count, boolean force)：设置y轴的标签数量。请注意，这个数字是不固定的（如果强制== false），只能近似。如果强制启用（true），则绘制精确的指定标签计数 - 这可能导致轴上的数字不均匀。</li>
+<li>setPosition(YAxisLabelPosition pos)：设置绘制轴标签的位置。INSIDE_CHART或OUTSIDE_CHART。</li>
+<li>setGranularity(float gran)：设置y轴值之间的最小间隔。这可以用于在放大到为轴设置的小数位数不再允许区分两个轴值的点时避免重复值。</li>
+<li>setGranularityEnabled(boolean enabled)：启用限制放大时y轴间隔的粒度特征。默认值：false</li>
 </ul>
-<h2 id="突出显示值"><a href="#突出显示值" class="headerlink" title="突出显示值"></a>突出显示值</h2><p>突出显示部分将介绍如何通过点按手势和编程方式突出显示条目。</p>
-<h2 id="手势回调"><a href="#手势回调" class="headerlink" title="手势回调"></a>手势回调</h2><p>OnChartGestureListener将允许您对图表上的手势做出反应：</p>
-<pre><code>public interface OnChartGestureListener {
+<h2 id="样式-修改轴"><a href="#样式-修改轴" class="headerlink" title="样式/修改轴"></a>样式/修改轴</h2><ul>
+<li>setTextColor(int color)：设置轴标签的颜色。</li>
+<li>setTextSize(float size)：设置dp中轴标签的文本大小。</li>
+<li>setTypeface(Typeface tf)：设置Typeface轴标签的自定义。</li>
+<li>setGridColor(int color)：设置此轴的网格线的颜色。</li>
+<li>setGridLineWidth(float width)：设置此轴的网格线的宽度。</li>
+<li>setAxisLineColor(int color)：设置此轴的轴线的颜色。</li>
+<li>setAxisLineWidth(float width)：设置此轴的轴线的宽度。</li>
+<li>enableGridDashedLine(float lineLength, float spaceLength, float phase)：允许以虚线模式绘制网格线，例如像这样的“ - - - - - ”。“lineLength”控制线段的长度，“spaceLength”控制线间的空间，“phase”控制起点。</li>
+</ul>
+<h2 id="格式化轴值"><a href="#格式化轴值" class="headerlink" title="格式化轴值"></a>格式化轴值</h2><ul>
+<li>对于格式化轴值，可以使用IAxisValueFormatter界面，它的介绍在这里。</li>
+<li>您可以使用axis.setValueFormatter(IAxisValueFormatter formatter)方法将自定义格式化程序设置给轴。</li>
+</ul>
+<h2 id="限制线"><a href="#限制线" class="headerlink" title="限制线"></a>限制线</h2><p>这两个轴支持所谓的LimitLines允许呈现特殊信息，如边界或约束。LimitLines添加到YAxis水平方向，并在垂直方向添加到XAxis。下边是您如何LimitLines从轴上添加和删​​除：</p>
+<pre><code>addLimitLine(LimitLine l)：LimitLine向此轴添加新的。
+removeLimitLine(LimitLine l)：LimitLine从该轴移除指定的。
+更多添加/删除可用的方法。
+setDrawLimitLinesBehindData(boolean enabled)：允许控制LimitLines和实际数据之间的z顺序。如果设置为true，则将LimitLines其拖放到实际数据之后，否则返回顶部。默认值：false
+</code></pre><p>限制线（类LimitLine）（名称可能指示）可以使用简单线条为用户提供附加信息。</p>
+<p>例如，您的图表可能会显示用户使用应用程序记录的各种血压测量结果。为了通知用户，超过140 mmHg的收缩压被认为是健康风险，您可以添加LimitLine140以提供该信息。</p>
+<h2 id="示例代码"><a href="#示例代码" class="headerlink" title="示例代码"></a>示例代码</h2><pre><code>YAxis leftAxis = chart.getAxisLeft();
 
-   /**
- *当触摸手势在图表上开始时的回调（ACTION_DOWN）
- *
- * @param me
- * @param lastPerformedGesture
- */
-void onChartGestureStart(MotionEvent me, ChartTouchListener.ChartGesture  lastPerformedGesture);
+LimitLine ll = new LimitLine(140f, &quot;Critical Blood Pressure&quot;);
+ll.setLineColor(Color.RED);
+ll.setLineWidth(4f);
+ll.setTextColor(Color.BLACK);
+ll.setTextSize(12f);
+// .. and more styling options
 
-/**
- * 当触摸手势在图表上结束时的回调(ACTION_UP, ACTION_CANCEL)
- *
- * @param me
- * @param lastPerformedGesture
- */
-void onChartGestureEnd(MotionEvent me, ChartTouchListener.ChartGesture lastPerformedGesture);
-
-/**
- * 当图表被长按时回调。
- * 
- * @param me
- */
-public void onChartLongPressed(MotionEvent me);
-
-/**
- *图表双击时回调。
- * 
- * @param me
- */
-public void onChartDoubleTapped(MotionEvent me);
-
-/**
- *当图表单点击时回调。
- * 
- * @param me
- */
-public void onChartSingleTapped(MotionEvent me);
-
-/**
- * 在图表上做出一个简单的滑动时回调。
- * 
- * @param me1
- * @param me2
- * @param velocityX
- * @param velocityY
- */
-public void onChartFling(MotionEvent me1, MotionEvent me2, float velocityX, float velocityY);
-
- /**
- *当图表通过缩放手势缩放/缩放时回调。
- * 
- * @param me
- * @param scaleX scalefactor on the x-axis
- * @param scaleY scalefactor on the y-axis
- */
-public void onChartScale(MotionEvent me, float scaleX, float scaleY);
-
- /**
- *当图表通过拖动手势移动/翻转时回调。
- *
- * @param me
- * @param dX translation distance on the x-axis
- * @param dY translation distance on the y-axis
- */
-public void onChartTranslate(MotionEvent me, float dX, float dY);  
-
-}
-</code></pre><p>只需让你的应该接收回调的类实现这个接口并将其设置为监听器到图表：</p>
-<pre><code>chart.setOnChartGestureListener(this);
+leftAxis.addLimitLine(ll);
 </code></pre>
       
     </div>
@@ -566,8 +541,8 @@ public void onChartTranslate(MotionEvent me, float dX, float dY);
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/08/07/入门/" rel="next" title="1.入门">
-                <i class="fa fa-chevron-left"></i> 1.入门
+              <a href="/2017/08/08/突出显示值/" rel="next" title="3.突出显示值">
+                <i class="fa fa-chevron-left"></i> 3.突出显示值
               </a>
             
           </div>
@@ -575,10 +550,6 @@ public void onChartTranslate(MotionEvent me, float dX, float dY);
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/08/08/突出显示值/" rel="prev" title="3.突出显示值">
-                3.突出显示值 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -739,7 +710,7 @@ public void onChartTranslate(MotionEvent me, float dX, float dY);
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#启用-禁用互动"><span class="nav-number">1.</span> <span class="nav-text">启用/禁用互动</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#图表闪烁-减速"><span class="nav-number">2.</span> <span class="nav-text">图表闪烁/减速</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#突出显示值"><span class="nav-number">3.</span> <span class="nav-text">突出显示值</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#手势回调"><span class="nav-number">4.</span> <span class="nav-text">手势回调</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#控制应绘制哪些零件（轴）"><span class="nav-number">1.</span> <span class="nav-text">控制应绘制哪些零件（轴）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#自定义轴范围（最小-最大）"><span class="nav-number">2.</span> <span class="nav-text">自定义轴范围（最小/最大）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#样式-修改轴"><span class="nav-number">3.</span> <span class="nav-text">样式/修改轴</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#格式化轴值"><span class="nav-number">4.</span> <span class="nav-text">格式化轴值</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#限制线"><span class="nav-number">5.</span> <span class="nav-text">限制线</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#示例代码"><span class="nav-number">6.</span> <span class="nav-text">示例代码</span></a></li></ol></div>
             
 
           </div>

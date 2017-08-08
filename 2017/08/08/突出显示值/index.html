@@ -97,7 +97,7 @@
 <meta property="og:url" content="http://jeffy12138.github.io/2017/08/08/突出显示值/index.html">
 <meta property="og:site_name" content="Jeffy&#39;s Blog">
 <meta property="og:description" content="本节重点介绍基于版本v3.0.0，通过点击手势和编程方式突出显示图表中的条目的主题 启用/禁用突出显示 setHighlightPerDragEnabled(boolean enabled)：将其设置为true Chart，以便在完全缩小时在图表上拖动时突出显示。默认值：true setHighlightPerTapEnabled(boolean enabled)：将其设置为false，Chart">
-<meta property="og:updated_time" content="2017-08-08T05:38:11.894Z">
+<meta property="og:updated_time" content="2017-08-08T05:40:29.286Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="3.突出显示值">
 <meta name="twitter:description" content="本节重点介绍基于版本v3.0.0，通过点击手势和编程方式突出显示图表中的条目的主题 启用/禁用突出显示 setHighlightPerDragEnabled(boolean enabled)：将其设置为true Chart，以便在完全缩小时在图表上拖动时突出显示。默认值：true setHighlightPerTapEnabled(boolean enabled)：将其设置为false，Chart">
@@ -352,7 +352,7 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-08-08T17:10:04+08:00">
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-08-08T18:20:22+08:00">
                 2017-08-08
               </time>
             
@@ -427,13 +427,14 @@
  dataSet.setDrawHighlightIndicators(true); 
  dataSet.setHighlightColor(Color.BLACK); // color for highlight indicator 
 // and more ...
-</code></pre><h2 id="以编程方式突出显示"><a href="#以编程方式突出显示" class="headerlink" title="以编程方式突出显示"></a>以编程方式突出显示</h2><ul>
+</code></pre><a id="more"></a>
+<h2 id="以编程方式突出显示"><a href="#以编程方式突出显示" class="headerlink" title="以编程方式突出显示"></a>以编程方式突出显示</h2><ul>
 <li>highlightValue(float x, int dataSetIndex, boolean callListener)：突出显示给定DataSet中给定x位置的值。提供-1作为dataSetIndex以撤消所有突出显示。布尔标志决定了应该调用选择侦听器。</li>
 <li>highlightValue(Highlight high, boolean callListener)：突出显示提供的Highlight对象所代表的值。提供null以撤销所有突出显示。布尔标志决定了应该调用选择侦听器。</li>
 <li>highlightValues(Highlight[] highs)：突出显示给定Highlight[]数组所表示的值。提供null或一个空数组来撤消所有突出显示。</li>
-<li>getHighlighted()：返回一个Highlight[]数组，其中包含有关所有突出显示的条目及其x-index和dataset-index的信息。<h2 id="选择回调"><a href="#选择回调" class="headerlink" title="选择回调"></a>选择回调</h2></li>
+<li>getHighlighted()：返回一个Highlight[]数组，其中包含有关所有突出显示的条目及其x-index和dataset-index的信息。</li>
 </ul>
-<p>该库在交互时提供了许多用于回调的侦听器。其中一个是OnChartValueSelectedListener通过触摸突出显示值时的回调：</p>
+<h2 id="选择回调"><a href="#选择回调" class="headerlink" title="选择回调"></a>选择回调</h2><p>该库在交互时提供了许多用于回调的侦听器。其中一个是OnChartValueSelectedListener通过触摸突出显示值时的回调：</p>
 <pre><code>public interface OnChartValueSelectedListener {
  / ** 
    *当在图表中选择了一个值时调用。
@@ -529,8 +530,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/08/07/入门/" rel="next" title="1.入门">
-                <i class="fa fa-chevron-left"></i> 1.入门
+              <a href="/2017/08/08/与图表的互动/" rel="next" title="2.与图表的互动">
+                <i class="fa fa-chevron-left"></i> 2.与图表的互动
               </a>
             
           </div>
@@ -539,8 +540,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2017/08/08/与图表的互动/" rel="prev" title="2.与图表的互动">
-                2.与图表的互动 <i class="fa fa-chevron-right"></i>
+              <a href="/2017/08/08/轴（AxisBase）/" rel="prev" title="4.轴（AxisBase）">
+                4.轴（AxisBase） <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -618,7 +619,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">7</span>
+                <span class="site-state-item-count">8</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
