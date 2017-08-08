@@ -93,7 +93,7 @@
 <meta name="description" content="Do your best">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Jeffy&#39;s Blog">
-<meta property="og:url" content="http://jeffy12138.github.io/categories/Android/index.html">
+<meta property="og:url" content="http://jeffy12138.github.io/categories/android/index.html">
 <meta property="og:site_name" content="Jeffy&#39;s Blog">
 <meta property="og:description" content="Do your best">
 <meta name="twitter:card" content="summary">
@@ -128,13 +128,13 @@
 
 
 
-  <link rel="canonical" href="http://jeffy12138.github.io/categories/Android/"/>
+  <link rel="canonical" href="http://jeffy12138.github.io/categories/android/"/>
 
 
 
 
 
-  <title>分类: Android | Jeffy's Blog</title>
+  <title>分类: android | Jeffy's Blog</title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -313,7 +313,7 @@
 
   <section id="posts" class="posts-collapse">
     <div class="collection-title">
-      <h1>Android<small>分类</small>
+      <h1>android<small>分类</small>
       </h1>
     </div>
 
@@ -325,37 +325,9 @@
 
       <h2 class="post-title">
         
-            <a class="post-title-link" href="/2017/08/08/与图表的互动/" itemprop="url">
+            <a class="post-title-link" href="/2017/03/15/Android底部导航栏凸起效果/" itemprop="url">
               
-                <span itemprop="name">2.与图表的互动</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-08-08T17:10:04+08:00"
-              content="2017-08-08" >
-          08-08
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-    
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2017/08/07/入门/" itemprop="url">
-              
-                <span itemprop="name">1.入门</span>
+                <span itemprop="name">底部导航栏凸起效果</span>
               
             </a>
         
@@ -363,65 +335,9 @@
 
       <div class="post-meta">
         <time class="post-time" itemprop="dateCreated"
-              datetime="2017-08-07T17:10:04+08:00"
-              content="2017-08-07" >
-          08-07
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-    
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2017/08/06/MPAndroidChart文档的viki翻译/" itemprop="url">
-              
-                <span itemprop="name">MPAndroidChart库的viki翻译</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-08-06T17:10:04+08:00"
-              content="2017-08-06" >
-          08-06
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-    
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2017/05/10/Android-Accessibility-辅助功能-学习/" itemprop="url">
-              
-                <span itemprop="name">Android Accessibility(辅助功能)学习</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-05-10T17:10:04+08:00"
-              content="2017-05-10" >
-          05-10
+              datetime="2017-03-15T10:44:53+08:00"
+              content="2017-03-15" >
+          03-15
         </time>
       </div>
 
@@ -476,7 +392,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">6</span>
+                <span class="site-state-item-count">7</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -987,6 +903,98 @@
                     item: resultItem,
                     searchTextCount: searchTextCount,
                     hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+  <!-- 页面点击小红心 -->
+<script type="text/javascript" src="/js/src/love.js"></script>
+
+</body>
+</html>
+            hitCount: hitCount,
                     id: resultItems.length
                   });
                 }

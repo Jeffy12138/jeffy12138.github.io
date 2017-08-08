@@ -97,7 +97,7 @@
 <meta property="og:url" content="http://jeffy12138.github.io/2017/08/08/与图表的互动/index.html">
 <meta property="og:site_name" content="Jeffy&#39;s Blog">
 <meta property="og:description" content="该库允许您完全自定义与图表视图的触摸（和手势）交互，并通过回调方法对交互作出反应。 启用/禁用互动 setTouchEnabled(boolean enabled)：允许启用/禁用与图表的所有可能的触摸交互。 setDragEnabled(boolean enabled)：启用/禁用图表的拖动（平移）。 setScaleEnabled(boolean enabled)：启用/禁用两个轴上图表的缩放">
-<meta property="og:updated_time" content="2017-08-08T02:24:57.382Z">
+<meta property="og:updated_time" content="2017-08-08T02:28:06.550Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="2.与图表的互动">
 <meta name="twitter:description" content="该库允许您完全自定义与图表视图的触摸（和手势）交互，并通过回调方法对交互作出反应。 启用/禁用互动 setTouchEnabled(boolean enabled)：允许启用/禁用与图表的所有可能的触摸交互。 setDragEnabled(boolean enabled)：启用/禁用图表的拖动（平移）。 setScaleEnabled(boolean enabled)：启用/禁用两个轴上图表的缩放">
@@ -427,9 +427,9 @@
 <a id="more"></a>
 <h2 id="图表闪烁-减速"><a href="#图表闪烁-减速" class="headerlink" title="图表闪烁/减速"></a>图表闪烁/减速</h2><ul>
 <li>setDragDecelerationEnabled(boolean enabled)：如果设置为true，图表在触摸后继续滚动。默认值：true。</li>
-<li>setDragDecelerationFrictionCoef(float coef)：减速摩擦系数在[0; 1]间隔，较高的值表示速度将缓慢降低，例如，如果设置为0，它将立即停止。1是无效值，将自动转换为0.9999。<h2 id="突出显示值"><a href="#突出显示值" class="headerlink" title="突出显示值"></a>突出显示值</h2></li>
+<li>setDragDecelerationFrictionCoef(float coef)：减速摩擦系数在[0; 1]间隔，较高的值表示速度将缓慢降低，例如，如果设置为0，它将立即停止。1是无效值，将自动转换为0.9999。</li>
 </ul>
-<p>突出显示部分将介绍如何通过点按手势和编程方式突出显示条目。</p>
+<h2 id="突出显示值"><a href="#突出显示值" class="headerlink" title="突出显示值"></a>突出显示值</h2><p>突出显示部分将介绍如何通过点按手势和编程方式突出显示条目。</p>
 <h2 id="手势回调"><a href="#手势回调" class="headerlink" title="手势回调"></a>手势回调</h2><p>OnChartGestureListener将允许您对图表上的手势做出反应：</p>
 <pre><code>public interface OnChartGestureListener {
 
@@ -566,8 +566,8 @@ public void onChartTranslate(MotionEvent me, float dX, float dY);
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/08/07/入门/" rel="next" title="1.入门">
-                <i class="fa fa-chevron-left"></i> 1.入门
+              <a href="/2017/08/08/突出显示值/" rel="next" title="3.突出显示值">
+                <i class="fa fa-chevron-left"></i> 3.突出显示值
               </a>
             
           </div>
@@ -651,7 +651,7 @@ public void onChartTranslate(MotionEvent me, float dX, float dY);
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">6</span>
+                <span class="site-state-item-count">7</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
