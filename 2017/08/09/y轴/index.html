@@ -98,7 +98,7 @@
 <meta property="og:site_name" content="Jeffy&#39;s Blog">
 <meta property="og:description" content="这YAxis是AxisBase的一个子类。这章只描述了YAxis，而不是它的超类AxisBase。 该YAxis类（比2.0.0更老版本的称呼为YLabels），是数据和一切与垂直轴相关的信息容器。每个Line-，Bar-，Scatter或CandleStickChart都有一个左YAxis对象和右YAxis对象，分别负责左轴或右轴。雷达图只有一个YAxis。默认情况下，图表的两个轴都被启用，并将">
 <meta property="og:image" content="http://i.imgur.com/q5RSHDE.png">
-<meta property="og:updated_time" content="2017-08-08T08:54:05.143Z">
+<meta property="og:updated_time" content="2017-08-08T08:57:09.558Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="6.Y轴（YAxis）">
 <meta name="twitter:description" content="这YAxis是AxisBase的一个子类。这章只描述了YAxis，而不是它的超类AxisBase。 该YAxis类（比2.0.0更老版本的称呼为YLabels），是数据和一切与垂直轴相关的信息容器。每个Line-，Bar-，Scatter或CandleStickChart都有一个左YAxis对象和右YAxis对象，分别负责左轴或右轴。雷达图只有一个YAxis。默认情况下，图表的两个轴都被启用，并将">
@@ -377,8 +377,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/android/" itemprop="url" rel="index">
-                    <span itemprop="name">android</span>
+                  <a href="/categories/Android/" itemprop="url" rel="index">
+                    <span itemprop="name">Android</span>
                   </a>
                 </span>
 
@@ -425,7 +425,8 @@ YAxis rightAxis = chart.getAxisRight();
 YAxis leftAxis = chart.getAxis(AxisDependency.LEFT);
 
 YAxis yAxis = radarChart.getYAxis(); //这个方法只有radarchart
-</code></pre><p>在运行时，public AxisDependency getAxisDependency()用来确定该轴代表的图表的边。</p>
+</code></pre><a id="more"></a>
+<p>在运行时，public AxisDependency getAxisDependency()用来确定该轴代表的图表的边。</p>
 <p>在设置图表的数据之前，需要应用影响轴值范围的自定义。</p>
 <h2 id="轴依赖性"><a href="#轴依赖性" class="headerlink" title="轴依赖性"></a>轴依赖性</h2><p>默认情况下，添加到图表的所有数据都会在图表左侧YAxis绘制。如果没有进一步指定和启用，则右侧的值YAxis被调整为与左轴相同的刻度。</p>
 <p>如果您的图表需要支持不同的轴刻度，则可以通过设置数据应该绘制的轴来实现。这可以通过改变AxisDependency来完成您的DataSet目标：</p>
