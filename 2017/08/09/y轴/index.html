@@ -74,7 +74,7 @@
 <link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="MPAndroidChart,K线图," />
 
 
 
@@ -90,15 +90,19 @@
 
 
 
-<meta name="description" content="Do your best">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Jeffy&#39;s Blog">
-<meta property="og:url" content="http://jeffy12138.github.io/tags/MPAndroidChart/index.html">
+<meta name="description" content="这YAxis是AxisBase的一个子类。这章只描述了YAxis，而不是它的超类AxisBase。 该YAxis类（比2.0.0更老版本的称呼为YLabels），是数据和一切与垂直轴相关的信息容器。每个Line-，Bar-，Scatter或CandleStickChart都有一个左YAxis对象和右YAxis对象，分别负责左轴或右轴。雷达图只有一个YAxis。默认情况下，图表的两个轴都被启用，并将">
+<meta name="keywords" content="MPAndroidChart,K线图">
+<meta property="og:type" content="article">
+<meta property="og:title" content="6.Y轴（YAxis）">
+<meta property="og:url" content="http://jeffy12138.github.io/2017/08/09/y轴/index.html">
 <meta property="og:site_name" content="Jeffy&#39;s Blog">
-<meta property="og:description" content="Do your best">
+<meta property="og:description" content="这YAxis是AxisBase的一个子类。这章只描述了YAxis，而不是它的超类AxisBase。 该YAxis类（比2.0.0更老版本的称呼为YLabels），是数据和一切与垂直轴相关的信息容器。每个Line-，Bar-，Scatter或CandleStickChart都有一个左YAxis对象和右YAxis对象，分别负责左轴或右轴。雷达图只有一个YAxis。默认情况下，图表的两个轴都被启用，并将">
+<meta property="og:image" content="http://i.imgur.com/q5RSHDE.png">
+<meta property="og:updated_time" content="2017-08-08T08:54:05.143Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Jeffy&#39;s Blog">
-<meta name="twitter:description" content="Do your best">
+<meta name="twitter:title" content="6.Y轴（YAxis）">
+<meta name="twitter:description" content="这YAxis是AxisBase的一个子类。这章只描述了YAxis，而不是它的超类AxisBase。 该YAxis类（比2.0.0更老版本的称呼为YLabels），是数据和一切与垂直轴相关的信息容器。每个Line-，Bar-，Scatter或CandleStickChart都有一个左YAxis对象和右YAxis对象，分别负责左轴或右轴。雷达图只有一个YAxis。默认情况下，图表的两个轴都被启用，并将">
+<meta name="twitter:image" content="http://i.imgur.com/q5RSHDE.png">
 
 
 
@@ -128,13 +132,13 @@
 
 
 
-  <link rel="canonical" href="http://jeffy12138.github.io/tags/MPAndroidChart/"/>
+  <link rel="canonical" href="http://jeffy12138.github.io/2017/08/09/y轴/"/>
 
 
 
 
 
-  <title>标签: MPAndroidChart | Jeffy's Blog</title>
+  <title>6.Y轴（YAxis） | Jeffy's Blog</title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -159,7 +163,7 @@
     
   
 
-  <div class="container sidebar-position-left  ">
+  <div class="container sidebar-position-left page-post-detail ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -311,212 +315,239 @@
           <div id="content" class="content">
             
 
-  <div id="posts" class="posts-collapse">
-    <div class="collection-title">
-      <h1>MPAndroidChart<small>标签</small>
-      </h1>
-    </div>
-
+  <div id="posts" class="posts-expand">
     
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2017/08/09/y轴/" itemprop="url">
-              
-                <span itemprop="name">6.Y轴（YAxis）</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-08-09T11:43:55+08:00"
-              content="2017-08-09" >
-          08-09
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-    
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2017/08/09/x轴/" itemprop="url">
-              
-                <span itemprop="name">5.X轴（XAxis）</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-08-09T10:43:55+08:00"
-              content="2017-08-09" >
-          08-09
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-    
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2017/08/08/轴（AxisBase）/" itemprop="url">
-              
-                <span itemprop="name">4.轴（AxisBase）</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-08-08T19:17:09+08:00"
-              content="2017-08-08" >
-          08-08
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-    
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2017/08/08/突出显示值/" itemprop="url">
-              
-                <span itemprop="name">3.突出显示值</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-08-08T18:20:22+08:00"
-              content="2017-08-08" >
-          08-08
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-    
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2017/08/08/与图表的互动/" itemprop="url">
-              
-                <span itemprop="name">2.与图表的互动</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-08-08T17:10:04+08:00"
-              content="2017-08-08" >
-          08-08
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-    
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2017/08/07/入门/" itemprop="url">
-              
-                <span itemprop="name">1.入门</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-08-07T17:10:04+08:00"
-              content="2017-08-07" >
-          08-07
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-    
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2017/08/06/MPAndroidChart文档的viki翻译/" itemprop="url">
-              
-                <span itemprop="name">MPAndroidChart库的viki翻译</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-08-06T17:10:04+08:00"
-              content="2017-08-06" >
-          08-06
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-    
-  </div>
 
   
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://jeffy12138.github.io/2017/08/09/y轴/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="吴纪飞">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/me.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Jeffy's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">6.Y轴（YAxis）</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-08-09T11:43:55+08:00">
+                2017-08-09
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/android/" itemprop="url" rel="index">
+                    <span itemprop="name">android</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv">本文总阅读量
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>次
+            </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>这YAxis是AxisBase的一个子类。这章只描述了YAxis，而不是它的超类AxisBase。</p>
+<p>该YAxis类（比2.0.0更老版本的称呼为YLabels），是数据和一切与垂直轴相关的信息容器。每个Line-，Bar-，Scatter或CandleStickChart都有一个左YAxis对象和右YAxis对象，分别负责左轴或右轴。雷达图只有一个YAxis。默认情况下，图表的两个轴都被启用，并将被绘制。</p>
+<p>为了获得一个实例中的YAxis类，请选择以下方法之一：</p>
+<pre><code>YAxis leftAxis = chart.getAxisLeft();
+YAxis rightAxis = chart.getAxisRight();
+
+YAxis leftAxis = chart.getAxis(AxisDependency.LEFT);
+
+YAxis yAxis = radarChart.getYAxis(); //这个方法只有radarchart
+</code></pre><p>在运行时，public AxisDependency getAxisDependency()用来确定该轴代表的图表的边。</p>
+<p>在设置图表的数据之前，需要应用影响轴值范围的自定义。</p>
+<h2 id="轴依赖性"><a href="#轴依赖性" class="headerlink" title="轴依赖性"></a>轴依赖性</h2><p>默认情况下，添加到图表的所有数据都会在图表左侧YAxis绘制。如果没有进一步指定和启用，则右侧的值YAxis被调整为与左轴相同的刻度。</p>
+<p>如果您的图表需要支持不同的轴刻度，则可以通过设置数据应该绘制的轴来实现。这可以通过改变AxisDependency来完成您的DataSet目标：</p>
+<pre><code>LineDataSet dataSet =  ... ; //获取一个数据集 
+dataSet.setAxisDependency(AxisDependency.RIGHT);
+</code></pre><p>设置此项将更改您的数据绘制轴。</p>
+<h2 id="零线"><a href="#零线" class="headerlink" title="零线"></a>零线</h2><p>除了在每个值旁边起源的网格线之外，还有一个YAxis所谓的零滚动，它在轴上的零（0）值处绘制，并且与网格线类似，但可以单独配置。</p>
+<pre><code>setDrawZeroLine(boolean enabled)：启用/禁用绘制零线。
+setZeroLineWidth(float width)：设置零行的行宽。
+setZeroLineColor(int color)：设置零线应具有的颜色。
+</code></pre><p>零线示例代码：</p>
+<pre><code>//数据具有AxisDependency.LEFT 
+YAxis left = mChart.getAxisLeft();
+left.setDrawLabels(false); //无轴标签 
+left.setDrawAxisLine(false); //没有轴线 
+left.setDrawGridLines(false); //无网格线 
+left.setDrawZeroLine(true); //绘制零行 
+mChart.getAxisRight().setEnabled(false); //没有右轴
+</code></pre><p>上述代码将导致zero-line如下图所示。不绘制轴值，不绘制网格线或轴线，仅只有zero-line。<br><img src="http://i.imgur.com/q5RSHDE.png" alt=""></p>
+<h2 id="更多示例代码"><a href="#更多示例代码" class="headerlink" title="更多示例代码"></a>更多示例代码</h2><pre><code>YAxis yAxis = mChart.getAxisLeft();
+yAxis.setTypeface（...）; //设置不同的字体 
+yAxis.setTextSize（12f）; //设置文字大小 
+yAxis.setAxisMinimum（0f）; //从零开始 
+yAxis.setAxisMaximum（100f）; //轴最大值为100 
+yAxis.setTextColor（颜色。 BLACK）;
+yAxis.setValueFormatter（new  MyValueFormatter（））;
+yAxis.setGranularity（1f）; //间隔1 
+yAxis.setLabelCount（6，true）; //强制6个标签
+// ...等等
+</code></pre>
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+  <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+    <div>坚持原创技术分享，您的支持将鼓励我继续创作！</div>
+    <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+      <span>赏</span>
+    </button>
+    <div id="QR" style="display: none;">
+      
+        <div id="wechat" style="display: inline-block">
+          <img id="wechat_qr" src="/images/ds_wx.jpg" alt="吴纪飞 WeChat Pay"/>
+          <p>微信打赏</p>
+        </div>
+      
+      
+        <div id="alipay" style="display: inline-block">
+          <img id="alipay_qr" src="/images/ds_zfb.jpg" alt="吴纪飞 Alipay"/>
+          <p>支付宝打赏</p>
+        </div>
+      
+    </div>
+  </div>
+
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/MPAndroidChart/" rel="tag"># MPAndroidChart</a>
+          
+            <a href="/tags/K线图/" rel="tag"># K线图</a>
+          
+        </div>
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/08/09/x轴/" rel="next" title="5.X轴（XAxis）">
+                <i class="fa fa-chevron-left"></i> 5.X轴（XAxis）
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        <div class="bdsharebuttonbox"><a href="#" class="bds_more" data-cmd="more"></a><a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"></a><a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a><a href="#" class="bds_tqq" data-cmd="tqq" title="分享到腾讯微博"></a><a href="#" class="bds_renren" data-cmd="renren" title="分享到人人网"></a><a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a></div>
+<script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"1","bdSize":"24"},"share":{},"image":{"viewList":["qzone","tsina","tqq","renren","weixin"],"viewText":"分享到：","viewSize":"16"},"selectShare":{"bdContainerClass":null,"bdSelectMiniList":["qzone","tsina","tqq","renren","weixin"]}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
+      
+    </div>
+  </div>
 
 
           </div>
@@ -524,6 +555,12 @@
 
 
           
+  <div class="comments" id="comments">
+    
+      <div id="lv-container" data-id="city" data-uid="MTAyMC8yODY4NS81MjU2"></div>
+    
+  </div>
+
 
         </div>
         
@@ -543,8 +580,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/me.jpg"
@@ -633,6 +679,22 @@
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#轴依赖性"><span class="nav-number">1.</span> <span class="nav-text">轴依赖性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#零线"><span class="nav-number">2.</span> <span class="nav-text">零线</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#更多示例代码"><span class="nav-number">3.</span> <span class="nav-text">更多示例代码</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -781,6 +843,10 @@
 
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.1"></script>
+
+
 
   
 
@@ -815,6 +881,17 @@
 
 
 
+  
+    <script type="text/javascript">
+      (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
+        if (typeof LivereTower === 'function') { return; }
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+        e.parentNode.insertBefore(j, e);
+      })(document, 'script');
+    </script>
   
 
 

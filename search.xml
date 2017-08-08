@@ -1,6 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[6.Y轴（YAxis）]]></title>
+    <url>%2F2017%2F08%2F09%2Fy%E8%BD%B4%2F</url>
+    <content type="text"><![CDATA[这YAxis是AxisBase的一个子类。这章只描述了YAxis，而不是它的超类AxisBase。 该YAxis类（比2.0.0更老版本的称呼为YLabels），是数据和一切与垂直轴相关的信息容器。每个Line-，Bar-，Scatter或CandleStickChart都有一个左YAxis对象和右YAxis对象，分别负责左轴或右轴。雷达图只有一个YAxis。默认情况下，图表的两个轴都被启用，并将被绘制。 为了获得一个实例中的YAxis类，请选择以下方法之一： YAxis leftAxis = chart.getAxisLeft(); YAxis rightAxis = chart.getAxisRight(); YAxis leftAxis = chart.getAxis(AxisDependency.LEFT); YAxis yAxis = radarChart.getYAxis(); //这个方法只有radarchart 在运行时，public AxisDependency getAxisDependency()用来确定该轴代表的图表的边。 在设置图表的数据之前，需要应用影响轴值范围的自定义。 轴依赖性默认情况下，添加到图表的所有数据都会在图表左侧YAxis绘制。如果没有进一步指定和启用，则右侧的值YAxis被调整为与左轴相同的刻度。 如果您的图表需要支持不同的轴刻度，则可以通过设置数据应该绘制的轴来实现。这可以通过改变AxisDependency来完成您的DataSet目标： LineDataSet dataSet = ... ; //获取一个数据集 dataSet.setAxisDependency(AxisDependency.RIGHT); 设置此项将更改您的数据绘制轴。 零线除了在每个值旁边起源的网格线之外，还有一个YAxis所谓的零滚动，它在轴上的零（0）值处绘制，并且与网格线类似，但可以单独配置。 setDrawZeroLine(boolean enabled)：启用/禁用绘制零线。 setZeroLineWidth(float width)：设置零行的行宽。 setZeroLineColor(int color)：设置零线应具有的颜色。 零线示例代码： //数据具有AxisDependency.LEFT YAxis left = mChart.getAxisLeft(); left.setDrawLabels(false); //无轴标签 left.setDrawAxisLine(false); //没有轴线 left.setDrawGridLines(false); //无网格线 left.setDrawZeroLine(true); //绘制零行 mChart.getAxisRight().setEnabled(false); //没有右轴 上述代码将导致zero-line如下图所示。不绘制轴值，不绘制网格线或轴线，仅只有zero-line。 更多示例代码YAxis yAxis = mChart.getAxisLeft(); yAxis.setTypeface（...）; //设置不同的字体 yAxis.setTextSize（12f）; //设置文字大小 yAxis.setAxisMinimum（0f）; //从零开始 yAxis.setAxisMaximum（100f）; //轴最大值为100 yAxis.setTextColor（颜色。 BLACK）; yAxis.setValueFormatter（new MyValueFormatter（））; yAxis.setGranularity（1f）; //间隔1 yAxis.setLabelCount（6，true）; //强制6个标签 // ...等等]]></content>
+      <categories>
+        <category>android</category>
+      </categories>
+      <tags>
+        <tag>MPAndroidChart</tag>
+        <tag>K线图</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[5.X轴（XAxis）]]></title>
     <url>%2F2017%2F08%2F09%2Fx%E8%BD%B4%2F</url>
     <content type="text"><![CDATA[XAxis是AxisBase的一个子类，它继承了许多样式和方便的方法。 XAxis类（在之前的2.0.0版本称为 XLabels），是用于一切有关水平轴的数据和信息的容器。每个Line-，Bar-，Scatter-，CandleStick-和RadarChart都有一个XAxis对象。 XAxis类允许特定的造型和由（可由）以下组分/部分组成： 所谓的“轴线”被直接绘制在标签上并与之平行 “网格线”，各自源于垂直方向的轴标签 为了获得一个实例中的XAxis类，请执行以下操作： XAxis xAxis = chart.getXAxis(); 自定义轴值 setLabelRotationAngle(float angle)：设置绘制x轴标签的角度（以度为单位）。 setPosition(XAxisPosition pos)：设置XAxis应显示的位置。在TOP，BOTTOM，BOTH_SIDED，TOP_INSIDE或BOTTOM_INSIDE之间进行选择。 示例代码 XAxis xAxis = chart.getXAxis(); xAxis.setPosition(XAxisPosition.BOTTOM); xAxis.setTextSize(10f); xAxis.setTextColor(Color.RED); xAxis.setDrawAxisLine(true); xAxis.setDrawGridLines(false); //设置一个自定义值格式化程序 xAxis.setValueFormatter(new MyCustomFormatter()); // and more…]]></content>
