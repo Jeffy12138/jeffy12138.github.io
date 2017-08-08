@@ -13,6 +13,18 @@
       </tags>
   </entry>
   <entry>
+    <title><![CDATA[5.X轴（XAxis）]]></title>
+    <url>%2F2017%2F08%2F08%2Fx%E8%BD%B4%2F</url>
+    <content type="text"><![CDATA[XAxis是AxisBase的一个子类，它继承了许多样式和方便的方法。 XAxis类（在之前的2.0.0版本称为 XLabels），是用于一切有关水平轴的数据和信息的容器。每个Line-，Bar-，Scatter-，CandleStick-和RadarChart都有一个XAxis对象。 XAxis类允许特定的造型和由（可由）以下组分/部分组成： 所谓的“轴线”被直接绘制在标签上并与之平行 “网格线”，各自源于垂直方向的轴标签 为了获得一个实例中的XAxis类，请执行以下操作： XAxis xAxis = chart.getXAxis(); 自定义轴值 setLabelRotationAngle(float angle)：设置绘制x轴标签的角度（以度为单位）。 setPosition(XAxisPosition pos)：设置XAxis应显示的位置。在TOP，BOTTOM，BOTH_SIDED，TOP_INSIDE或BOTTOM_INSIDE之间进行选择。 示例代码 XAxis xAxis = chart.getXAxis(); xAxis.setPosition(XAxisPosition.BOTTOM); xAxis.setTextSize(10f); xAxis.setTextColor(Color.RED); xAxis.setDrawAxisLine(true); xAxis.setDrawGridLines(false); //设置一个自定义值格式化程序 xAxis.setValueFormatter(new MyCustomFormatter()); // and more…]]></content>
+      <categories>
+        <category>Android</category>
+      </categories>
+      <tags>
+        <tag>MPAndroidChart</tag>
+        <tag>K线图</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[3.突出显示值]]></title>
     <url>%2F2017%2F08%2F08%2F%E7%AA%81%E5%87%BA%E6%98%BE%E7%A4%BA%E5%80%BC%2F</url>
     <content type="text"><![CDATA[本节重点介绍基于版本v3.0.0，通过点击手势和编程方式突出显示图表中的条目的主题 启用/禁用突出显示 setHighlightPerDragEnabled(boolean enabled)：将其设置为true Chart，以便在完全缩小时在图表上拖动时突出显示。默认值：true setHighlightPerTapEnabled(boolean enabled)：将其设置为false，Chart以防止点击手势突出显示值。仍然可以通过拖动或以编程方式突出显示值。默认值：true setMaxHighlightDistance(float distanceDp)：设置dp中的最大高亮距离。图表上远离条目的图表距离不会触发高亮。默认值：500dp 除此之外，可以为单个DataSet对象配置突出显示： dataSet.setHighlightEnabled(true); //允许突出显示DataSet //将此设置为false可禁用高亮指示符（lines） dataSet.setDrawHighlightIndicators(true); dataSet.setHighlightColor(Color.BLACK); // color for highlight indicator // and more ... 以编程方式突出显示 highlightValue(float x, int dataSetIndex, boolean callListener)：突出显示给定DataSet中给定x位置的值。提供-1作为dataSetIndex以撤消所有突出显示。布尔标志决定了应该调用选择侦听器。 highlightValue(Highlight high, boolean callListener)：突出显示提供的Highlight对象所代表的值。提供null以撤销所有突出显示。布尔标志决定了应该调用选择侦听器。 highlightValues(Highlight[] highs)：突出显示给定Highlight[]数组所表示的值。提供null或一个空数组来撤消所有突出显示。 getHighlighted()：返回一个Highlight[]数组，其中包含有关所有突出显示的条目及其x-index和dataset-index的信息。 选择回调该库在交互时提供了许多用于回调的侦听器。其中一个是OnChartValueSelectedListener通过触摸突出显示值时的回调： public interface OnChartValueSelectedListener { / ** *当在图表中选择了一个值时调用。 * * @param e所选条目。 * @param h相应的突出显示对象，其中包含关于突出显示位置的信息 * / public void onValueSelected（Entry e，Highlight h）; / ** *当没有选择任何东西或进行“未选择”时调用。 * / public void onNothingSelected（）; } 只需让你的应该接收回调的类实现这个接口并将其设置为监听器到图表： chart.setOnChartValueSelectedListener(this); 亮点类所述Highlight类表示与突出相关联的所有数据Entry，如突出显示的Entry对象本身，DataSet它属于，它的绘图表面更上的位置。它可以用于获取有关已经突出显示的信息Entry，或用于提供信息以Chart供Entry高亮显示。为此目的，Highlight该类提供了两个构造函数： /**标准亮点的构造函数* / public Highlight（ float x， int dataSetIndex）{ ... } /**堆叠BarEntry高亮度的构造函数* / public Highlight（ float x， int dataSetIndex， int stackIndex）{ ... } 这些构造函数可用于创建Highlight允许以编程方式执行突出显示的对象： //突出显示第一个（0）数据集中的条目和x位置50 Highlight highlight = new Highlight(50f, 0); chart.highlightValue(highlight, false); //突出显示此值，不要调用监听器 自定义荧光笔所有以高亮手势形式显示的用户输入都由默认ChartHighlighter类进行内部处理。使用以下方法可以使用自定义实现替换默认的highligher： setHighlighter(ChartHighlighter highlighter)：为处理/处理在图表视图中执行的所有突出显示触摸事件的图表设置自定义高亮对象。您的自定义荧光笔对象需要扩展ChartHighlighter类。]]></content>
