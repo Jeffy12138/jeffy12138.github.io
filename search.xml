@@ -17,7 +17,7 @@
     <url>%2F2017%2F08%2F09%2Fx%E8%BD%B4%2F</url>
     <content type="text"><![CDATA[XAxis是AxisBase的一个子类，它继承了许多样式和方便的方法。 XAxis类（在之前的2.0.0版本称为 XLabels），是用于一切有关水平轴的数据和信息的容器。每个Line-，Bar-，Scatter-，CandleStick-和RadarChart都有一个XAxis对象。 XAxis类允许特定的造型和由（可由）以下组分/部分组成： 所谓的“轴线”被直接绘制在标签上并与之平行 “网格线”，各自源于垂直方向的轴标签 为了获得一个实例中的XAxis类，请执行以下操作： XAxis xAxis = chart.getXAxis(); 自定义轴值 setLabelRotationAngle(float angle)：设置绘制x轴标签的角度（以度为单位）。 setPosition(XAxisPosition pos)：设置XAxis应显示的位置。在TOP，BOTTOM，BOTH_SIDED，TOP_INSIDE或BOTTOM_INSIDE之间进行选择。 示例代码 XAxis xAxis = chart.getXAxis(); xAxis.setPosition(XAxisPosition.BOTTOM); xAxis.setTextSize(10f); xAxis.setTextColor(Color.RED); xAxis.setDrawAxisLine(true); xAxis.setDrawGridLines(false); //设置一个自定义值格式化程序 xAxis.setValueFormatter(new MyCustomFormatter()); // and more…]]></content>
       <categories>
-        <category>android</category>
+        <category>Android</category>
       </categories>
       <tags>
         <tag>MPAndroidChart</tag>
