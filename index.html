@@ -463,6 +463,225 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://jeffy12138.github.io/2017/08/07/与图表的互动/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="吴纪飞">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/me.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Jeffy's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/08/07/与图表的互动/" itemprop="url">2.与图表的互动</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-08-07T17:10:04+08:00">
+                2017-08-07
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Android/" itemprop="url" rel="index">
+                    <span itemprop="name">Android</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>该库允许您完全自定义与图表视图的触摸（和手势）交互，并通过回调方法对交互作出反应。</p>
+<h2 id="启用-禁用互动"><a href="#启用-禁用互动" class="headerlink" title="启用/禁用互动"></a>启用/禁用互动</h2><ul>
+<li>setTouchEnabled(boolean enabled)：允许启用/禁用与图表的所有可能的触摸交互。</li>
+<li>setDragEnabled(boolean enabled)：启用/禁用图表的拖动（平移）。</li>
+<li>setScaleEnabled(boolean enabled)：启用/禁用两个轴上图表的缩放。</li>
+<li>setScaleXEnabled(boolean enabled)：启用/禁用x轴上的缩放。</li>
+<li>setScaleYEnabled(boolean enabled)：启用/禁用y轴上的缩放。</li>
+<li>setPinchZoom(boolean enabled)：如果设置为true，则可以使用缩小缩放。如果禁用，可以单独放大x轴和y轴。</li>
+<li>setDoubleTapToZoomEnabled(boolean enabled)：将其设置为false可禁止通过双击来缩放图表。</li>
+</ul>
+<h2 id="图表闪烁-减速"><a href="#图表闪烁-减速" class="headerlink" title="图表闪烁/减速"></a>图表闪烁/减速</h2><ul>
+<li>setDragDecelerationEnabled(boolean enabled)：如果设置为true，图表在触摸后继续滚动。默认值：true。</li>
+<li>setDragDecelerationFrictionCoef(float coef)：减速摩擦系数在[0; 1]间隔，较高的值表示速度将缓慢降低，例如，如果设置为0，它将立即停止。1是无效值，将自动转换为0.9999。<h2 id="突出显示值"><a href="#突出显示值" class="headerlink" title="突出显示值"></a>突出显示值</h2></li>
+</ul>
+<p>突出显示部分将介绍如何通过点按手势和编程方式突出显示条目。</p>
+<h2 id="手势回调"><a href="#手势回调" class="headerlink" title="手势回调"></a>手势回调</h2><p>OnChartGestureListener将允许您对图表上的手势做出反应：</p>
+<pre><code>public interface OnChartGestureListener {
+
+   /**
+ *当触摸手势在图表上开始时的回调（ACTION_DOWN）
+ *
+ * @param me
+ * @param lastPerformedGesture
+ */
+void onChartGestureStart(MotionEvent me, ChartTouchListener.ChartGesture  lastPerformedGesture);
+
+/**
+ * 当触摸手势在图表上结束时的回调(ACTION_UP, ACTION_CANCEL)
+ *
+ * @param me
+ * @param lastPerformedGesture
+ */
+void onChartGestureEnd(MotionEvent me, ChartTouchListener.ChartGesture lastPerformedGesture);
+
+/**
+ * 当图表被长按时回调。
+ * 
+ * @param me
+ */
+public void onChartLongPressed(MotionEvent me);
+
+/**
+ *图表双击时回调。
+ * 
+ * @param me
+ */
+public void onChartDoubleTapped(MotionEvent me);
+
+/**
+ *当图表单点击时回调。
+ * 
+ * @param me
+ */
+public void onChartSingleTapped(MotionEvent me);
+
+/**
+ * 在图表上做出一个简单的滑动时回调。
+ * 
+ * @param me1
+ * @param me2
+ * @param velocityX
+ * @param velocityY
+ */
+public void onChartFling(MotionEvent me1, MotionEvent me2, float velocityX, float velocityY);
+
+ /**
+ *当图表通过缩放手势缩放/缩放时回调。
+ * 
+ * @param me
+ * @param scaleX scalefactor on the x-axis
+ * @param scaleY scalefactor on the y-axis
+ */
+public void onChartScale(MotionEvent me, float scaleX, float scaleY);
+
+ /**
+ *当图表通过拖动手势移动/翻转时回调。
+ *
+ * @param me
+ * @param dX translation distance on the x-axis
+ * @param dY translation distance on the y-axis
+ */
+public void onChartTranslate(MotionEvent me, float dX, float dY);  
+
+}
+</code></pre><p>只需让你的应该接收回调的类实现这个接口并将其设置为监听器到图表：</p>
+<pre><code>chart.setOnChartGestureListener(this);
+</code></pre>
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
     <link itemprop="mainEntityOfPage" href="http://jeffy12138.github.io/2017/08/06/MPAndroidChart文档的viki翻译/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1058,7 +1277,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">5</span>
+                <span class="site-state-item-count">6</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>

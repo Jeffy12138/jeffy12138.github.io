@@ -13,6 +13,18 @@
       </tags>
   </entry>
   <entry>
+    <title><![CDATA[2.与图表的互动]]></title>
+    <url>%2F2017%2F08%2F07%2F%E4%B8%8E%E5%9B%BE%E8%A1%A8%E7%9A%84%E4%BA%92%E5%8A%A8%2F</url>
+    <content type="text"><![CDATA[该库允许您完全自定义与图表视图的触摸（和手势）交互，并通过回调方法对交互作出反应。 启用/禁用互动 setTouchEnabled(boolean enabled)：允许启用/禁用与图表的所有可能的触摸交互。 setDragEnabled(boolean enabled)：启用/禁用图表的拖动（平移）。 setScaleEnabled(boolean enabled)：启用/禁用两个轴上图表的缩放。 setScaleXEnabled(boolean enabled)：启用/禁用x轴上的缩放。 setScaleYEnabled(boolean enabled)：启用/禁用y轴上的缩放。 setPinchZoom(boolean enabled)：如果设置为true，则可以使用缩小缩放。如果禁用，可以单独放大x轴和y轴。 setDoubleTapToZoomEnabled(boolean enabled)：将其设置为false可禁止通过双击来缩放图表。 图表闪烁/减速 setDragDecelerationEnabled(boolean enabled)：如果设置为true，图表在触摸后继续滚动。默认值：true。 setDragDecelerationFrictionCoef(float coef)：减速摩擦系数在[0; 1]间隔，较高的值表示速度将缓慢降低，例如，如果设置为0，它将立即停止。1是无效值，将自动转换为0.9999。突出显示值 突出显示部分将介绍如何通过点按手势和编程方式突出显示条目。 手势回调OnChartGestureListener将允许您对图表上的手势做出反应： public interface OnChartGestureListener { /** *当触摸手势在图表上开始时的回调（ACTION_DOWN） * * @param me * @param lastPerformedGesture */ void onChartGestureStart(MotionEvent me, ChartTouchListener.ChartGesture lastPerformedGesture); /** * 当触摸手势在图表上结束时的回调(ACTION_UP, ACTION_CANCEL) * * @param me * @param lastPerformedGesture */ void onChartGestureEnd(MotionEvent me, ChartTouchListener.ChartGesture lastPerformedGesture); /** * 当图表被长按时回调。 * * @param me */ public void onChartLongPressed(MotionEvent me); /** *图表双击时回调。 * * @param me */ public void onChartDoubleTapped(MotionEvent me); /** *当图表单点击时回调。 * * @param me */ public void onChartSingleTapped(MotionEvent me); /** * 在图表上做出一个简单的滑动时回调。 * * @param me1 * @param me2 * @param velocityX * @param velocityY */ public void onChartFling(MotionEvent me1, MotionEvent me2, float velocityX, float velocityY); /** *当图表通过缩放手势缩放/缩放时回调。 * * @param me * @param scaleX scalefactor on the x-axis * @param scaleY scalefactor on the y-axis */ public void onChartScale(MotionEvent me, float scaleX, float scaleY); /** *当图表通过拖动手势移动/翻转时回调。 * * @param me * @param dX translation distance on the x-axis * @param dY translation distance on the y-axis */ public void onChartTranslate(MotionEvent me, float dX, float dY); } 只需让你的应该接收回调的类实现这个接口并将其设置为监听器到图表： chart.setOnChartGestureListener(this);]]></content>
+      <categories>
+        <category>Android</category>
+      </categories>
+      <tags>
+        <tag>MPAndroidChart</tag>
+        <tag>K线图</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[MPAndroidChart库的viki翻译]]></title>
     <url>%2F2017%2F08%2F06%2FMPAndroidChart%E6%96%87%E6%A1%A3%E7%9A%84viki%E7%BF%BB%E8%AF%91%2F</url>
     <content type="text"><![CDATA[欢迎使用MPAndroidChart库的文档。 文档章节 入门 与图表的相互作用 突出显示值 轴（AxisBase） XAxis YAxis 设置数据 设置颜色 格式化数据值（ValueFormatter） 格式化轴值（AxisValueFormatter） 一般设置和样式 具体设置和样式 传说 动态和实时数据 修改视口 动画 MarkerView（Popup View） ChartData类 ChartData子类 DataSet类（一般的DataSet样式） DataSet子类（特定DataSet样式） ViewPortHandler 定制填充线位置（FillFormatter） 保镖 Realm.io手机数据库 创建自己的（自定义）DataSet 其他（更有用的东西） 其他信息 使用此库的项目（参考） 性能]]></content>
