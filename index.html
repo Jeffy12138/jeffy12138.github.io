@@ -412,164 +412,17 @@
 
       
         
-          
-            <p>本章介绍了将数据设置到各种类型的图表。</p>
+          <p>本章介绍了将数据设置到各种类型的图表。</p>
 <h2 id="线型图"><a href="#线型图" class="headerlink" title="线型图"></a>线型图</h2><p>如果要向图表添加值（数据），则必须通过</p>
 <pre><code>public  void setData（ChartData data）{ ... }
-</code></pre><p>方法。所述基类ChartData（ChartData）类封装了图表呈现期间所需的所有数据和信息。对于每种类型的图表，存在用于为图表设置数据的ChartData（例如LineData）的不同子类。在构造函数中，您可以将其List&lt;? extends IDataSet&gt;作为要显示的值进行切换。下面是一个LineData类（extends ChartData）的例子，用于将数据添加到LineChart：</p>
-<pre><code>/**列表构造函数*/
- public LineData（ List &lt; ILineDataSet &gt; sets）{ ... }
-
-/**构造与一个或多个ILineDataSet对象*/
-公共 LineData（ ILineDataSet 。..）{ ... }
-</code></pre><p>那么，什么是一个DataSet，你为什么需要它？这其实很简单。一个DataSet对象表示图表中的Entry属于一起的一组条目（例如类）。它被设计为在图表中逻辑地分隔不同的值组。对于每种类型的图表，存在允许特定样式的扩展DataSet（例如LineDataSet）的不同对象。</p>
-<p>例如，您可能希望显示在一年内两家不同公司的季度收入LineChart。在这种情况下，建议创建两个不同的LineDataSet对象，每个对象包含四个值（每个季度一个）。</p>
-<p>当然，也可以LineDataSet为两个公司提供一个包含所有8个值的对象。</p>
-<p>那么如何设置LineDataSet对象？</p>
-<pre><code>public LineDataSet（List &lt; Entry &gt; entries，String label）{ ... }
-</code></pre><p>当查看构造函数（多种不同的构造函数可用）时，可以看到LineDataSet需要一个List类型Entry用于描述LineDataSet和一个String用作该标签的标签Legend。此外，此标签可用于查找对象中的LineDataSet</p>
-<p>该List类型Entry封装了图表的所有值。一个Entry是围绕与x轴和y值在图表中的条目的的包装：</p>
-<pre><code>public Entry（float x，float y）{ ... }
-</code></pre><p>把它放在一起（两家公司季度收入超过一年的例子）：</p>
-<p>首先，创建Entry类型列表来保存您的值：</p>
-<pre><code>List&lt;Entry&gt; valsComp1 = new ArrayList&lt;Entry&gt;();
-List&lt;Entry&gt; valsComp2 = new ArrayList&lt;Entry&gt;();
-</code></pre><p>然后，用Entry对象填写列表。确保条目对象包含x轴的正确索引。（当然，这里可以使用一个循环，在这种情况下，循环的计数器变量可以是x轴上的索引）。</p>
-<pre><code>Entry c1e1 = new Entry(0f, 100000f); // 0 == quarter 1
-valsComp1.add(c1e1);
-Entry c1e2 = new Entry(1f, 140000f); // 1 == quarter 2 ...
-valsComp1.add(c1e2);
-// and so on ...
-
-Entry c2e1 = new Entry(0f, 130000f); // 0 == quarter 1
-valsComp2.add(c2e1);
-Entry c2e2 = new Entry(1f, 115000f); // 1 == quarter 2 ...
-valsComp2.add(c2e2);
-//...
-</code></pre><p>现在我们有了Entry对象列表，LineDataSet对象可以创建：</p>
-<pre><code>LineDataSet setComp1 = new LineDataSet(valsComp1, &quot;Company 1&quot;);
-setComp1.setAxisDependency(AxisDependency.LEFT);
-LineDataSet setComp2 = new LineDataSet(valsComp2, &quot;Company 2&quot;);
-setComp2.setAxisDependency(AxisDependency.LEFT);
-</code></pre><p>通过调用setAxisDependency(…)，DataSet应该绘制相对应的轴。但并非最后 最重要的是，我们创建一个IDataSets列表并构建我们的ChartData对象：</p>
-<pre><code>//使用接口ILineDataSet 
-List&lt;ILineDataSet&gt; dataSets = new ArrayList&lt;ILineDataSet&gt;();
-dataSets.add(setComp1);
-dataSets.add(setComp2);
-
-LineData data = new LineData(dataSets);
-mLineChart.setData(data);
-mLineChart.invalidate(); //刷新
-</code></pre><p>调用invalidate()后，图表刷新并展示所提供的数据。</p>
-<p>如果我们要为x轴添加更多的描述性值（而不是不同季度的0到3的数字），我们可以通过使用IAxisValueFormatter接口来实现。这个界面允许XAxis自定义样式。在此示例中，格式化程序可能如下所示：</p>
-<pre><code>//应该在XAxis上绘制的标签
-final String[] quarters = new String[] { &quot;Q1&quot;, &quot;Q2&quot;, &quot;Q3&quot;, &quot;Q4&quot; };
-
-IAxisValueFormatter formatter = new IAxisValueFormatter() {
-
-@Override
-public String getFormattedValue(float value, AxisBase axis) {
-    return quarters[(int) value];
-}
-
-
-//我们不绘制数字，所以不需要十进制数字
-@Override
-public int getDecimalDigits() {  return 0; }
-};
-
-XAxis xAxis = mLineChart.getXAxis();
-xAxis.setGranularity(1f);  // minimum axis-step（interval）为1 
-xAxis.setValueFormatter（格式化器）;
-</code></pre><p>有关IAxisValueFormatter界面的详细信息，请参见此处。</p>
-<p>如果应用了附加样式，则LineChart从此示例得到的样式应类似于以下内容：<br><img src="http://i.imgur.com/Il6pI7q.png" alt=""></p>
-<p>BarChart，ScatterChart，BubbleChart和CandleStickChart正常设定数据工作原理类似LineChart。一个特殊情况是BarChart有多个（分组）的条，这将在下面解释。</p>
-<h2 id="条目的顺序"><a href="#条目的顺序" class="headerlink" title="条目的顺序"></a>条目的顺序</h2><p>请注意，这个库并不正式支持从没有在上升方式中的条目的x位置排序的条目列表绘制折线图的数据。以未排序的方式添加条目可能会导致正确的绘制，但也可能导致意外的行为。一个Entry的List对象可以手动排序，也可以使用EntryXComparator：</p>
-<pre><code>List&lt;Entry&gt; entries = ...;
-Collections.sort(entries, new EntryXComparator());
-</code></pre><p>必需是这样的原因是因为库使用二进制搜索算法来获得更好的性能，只能在排序列表上工作。</p>
-<h2 id="BARCHART"><a href="#BARCHART" class="headerlink" title="BARCHART"></a>BARCHART</h2><p>a BarChart设置数据的方式非常类似于LineChart。主要区别是需要用于设置数据的数据对象（例如，BarEntry而不是Entry）。除此之外，BarChart还有不同的风格选择。</p>
-<p>请考虑以下填写BarChart数据的示例：</p>
-<pre><code>List&lt;BarEntry&gt; entries = new ArrayList&lt;&gt;();
-entries.add(new BarEntry(0f, 30f));
-entries.add(new BarEntry(1f, 80f));
-entries.add(new BarEntry(2f, 60f));
-entries.add(new BarEntry(3f, 50f)); 
-                                // gap of 2f
-entries.add(new BarEntry(5f, 70f));
-entries.add(new BarEntry(6f, 60f));
-
-BarDataSet set = new BarDataSet(entries, &quot;BarDataSet&quot;);
-</code></pre><p>在上面的例子中，BarEntry创建了五个对象并将其添加到了BarDataSet。请注意，在第四个到第五个条目之间的x位置上存在“2”的差距。在这个例子中，这个差距用来解释杆在BarChart工程中的定位。本教程末尾的屏幕截图将显示BarChart给定数据的结果。作为下一步，BarData需要创建一个对象：</p>
-<pre><code>BarData data = new BarData(set);
-data.setBarWidth(0.9f); //设置自定义栏宽度 
-chart.setData(data);
-chart.setFitBars(true);  //使x轴完全适合所有酒吧 
-chart.invalidate();  //刷新
-</code></pre><p>在上面的代码段中，BarData创建了一个对象。当BarEntry图表的对象创建时，我们在每个栏的（中心）之间的x轴上留下了一个“1f”空格。通过将条宽设置为0.9f，我们有效在每个条之间地创建一个0.1f的空间。setFitBars（true）调用会告诉图表调整它的x轴值的范围，以精确地适合所有的条，并且不会在两边切断条形。</p>
-<p>创建BarData对象后，我们将其设置为图表并刷新。结果应该如下所示：</p>
-<p><img src="http://i.imgur.com/fPfsGeB.png" alt=""></p>
-<h2 id="分组BarChart"><a href="#分组BarChart" class="headerlink" title="分组BarChart"></a>分组BarChart</h2><p>自版本V3.0.0以来，MPAndroidChart支持绘制条分组显式（在这种情况下，库将处理x位置）或用户定义，这意味着用户可以通过更改x位置来将栏放置在任何位置。</p>
-<p>本节将重点介绍显式分组的BarChart，这意味着库将处理条的x位置。 请考虑以下示例设置：</p>
-<pre><code>YourData[] group1 = ...;
-YourData[] group2 = ...;
-
-List&lt;BarEntry&gt; entriesGroup1 = new ArrayList&lt;&gt;();
-List&lt;BarEntry&gt; entriesGroup2 = new ArrayList&lt;&gt;();
-
-//填充列表
-for(int i = 0; i &lt; group1.length; i++) {
-    entriesGroup1.add(new BarEntry(i, group1.getValue()));
-    entriesGroup2.add(new BarEntry(i, group2.getValue()));
-}
-
-BarDataSet set1 = new BarDataSet(entriesGroup1, &quot;Group 1&quot;);
-BarDataSet set2 = new BarDataSet(entriesGroup2, &quot;Group 2&quot;);
-</code></pre><p>在这个例子中，我们将有两组条，每组由一个BarDataSet表示。 在显式（处理库）的情况下，条目的实际x位置并不重要。 根据条目列表中BarEntry的位置执行分组。</p>
-<pre><code>float groupSpace = 0.06f;
-float barSpace = 0.02f; // x2 dataset
-float barWidth = 0.45f; // x2 dataset
-// (0.02 + 0.45) * 2 + 0.06 = 1.00 -&gt; interval per &quot;group&quot;
-
-BarData data = new BarData(set1, set2);
-data.setBarWidth(barWidth); // set the width of each bar
-barChart.setData(data);
-barChart.groupBars(1980f, groupSpace, barSpace); // perform the &quot;explicit&quot; grouping
-barChart.invalidate(); // refresh
-</code></pre><p>在上面的代码片段中，BarDataSet对象被添加到BarChart。 groupBars（…）方法执行两个BarDataSet对象的分组。 该方法采用以下参数：</p>
-<pre><code>public  void groupBars（float fromX，float groupSpace，float barSpace）{ ... }
-</code></pre><p>该fromX参数确定XAxis分组栏应该在何处开始（在这种情况下为“1980”），groupSpace确定每组条之间留下的空间，barSpace确定组中单个条之间的空格。基于这些参数，该groupBars(…)方法改变每个条的XAxis朝向分组外观的位置，保持各个BarEntry对象的顺序。</p>
-<p>每个组中的“间隔”（占用空间）XAxis也由参数groupSpace和barSpace参数定义barWidth。</p>
-<p>结果应该是这样的：</p>
-<p><img src="http://i.imgur.com/7iwMlq6.png" alt=""></p>
-<p>当然，分组的BarChart也可以在不使用groupBars（…）方法的情况下实现，只需通过手动将各个条直接定位到XAxis上即可。</p>
-<p>为了确保在XAxis上面的屏幕截图中的标签位于组之上，您可以使用以下setCenterAxisLabels(…)方法：</p>
-<pre><code>XAxis xAxis = chart.getXAxis();
-xAxis.setCenterAxisLabels(true);
-</code></pre><h2 id="堆叠BarChart"><a href="#堆叠BarChart" class="headerlink" title="堆叠BarChart"></a>堆叠BarChart</h2><p>堆叠的BarChart设置与普通的BarChart完全相似，除了BarEntry创建各个对象的方式之外。在堆叠条形的情况下，BarEntry必须使用不同的构造函数：</p>
-<pre><code>public BarEntry（float x，float [] yValues）{ ... }
-</code></pre><p>该构造函数允许提供多个yValues，它们表示每个栏的“堆栈”的值。考虑下面的示例对象：</p>
-<pre><code>BarEntry stackedEntry = new BarEntry(0f, new float[] { 10, 20, 30 });
-</code></pre><p>这BarEntry包括三个值的堆叠，“高”为“10”，“20”和“30”。</p>
-<h2 id="PieChart"><a href="#PieChart" class="headerlink" title="PieChart"></a>PieChart</h2><p>与其他图表类型不同，PieChart以PieEntry对象的形式获取数据。 这些对象的构造函数如下所示：</p>
-<pre><code>public PieEntry（float value，String label）{ ... }
-</code></pre><p>构造函数的第一个参数用于在PieChart中应该绘制为饼图的实际“值”。 称为“label”的第二个String参数用于提供切片的其他描述。 请考虑以下示例PieChart设置：</p>
-<pre><code>List&lt;PieEntry&gt; entries = new ArrayList&lt;&gt;();
-
-entries.add(new PieEntry(18.5f, &quot;Green&quot;));
-entries.add(new PieEntry(26.7f, &quot;Yellow&quot;));
-entries.add(new PieEntry(24.0f, &quot;Red&quot;));
-entries.add(new PieEntry(30.8f, &quot;Blue&quot;));
-
-PieDataSet set = new PieDataSet(entries, &quot;Election Results&quot;);
-PieData data = new PieData(set);
-pieChart.setData(data);
-pieChart.invalidate(); // refresh
-</code></pre><p>PieEntry对象不能保存x位置的值，因为图表中显示的PieEntry对象的顺序由其在条目列表中的顺序确定。</p>
-<p>添加一些额外的样式时，所得到的PieChart与上面使用的数据可能类似于：</p>
-<p><img src="http://i.imgur.com/imhSQEL.png" alt=""></p>
-
-          
+</code></pre>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/08/09/设置数据/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>

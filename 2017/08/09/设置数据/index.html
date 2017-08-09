@@ -90,21 +90,21 @@
 
 
 
-<meta name="description" content="本章介绍了将数据设置到各种类型的图表。 线型图如果要向图表添加值（数据），则必须通过 public  void setData（ChartData data）{ ... } 方法。所述基类ChartData（ChartData）类封装了图表呈现期间所需的所有数据和信息。对于每种类型的图表，存在用于为图表设置数据的ChartData（例如LineData）的不同子类。在构造函数中，您可以将其List">
+<meta name="description" content="本章介绍了将数据设置到各种类型的图表。 线型图如果要向图表添加值（数据），则必须通过 public  void setData（ChartData data）{ ... }">
 <meta name="keywords" content="MPAndroidChart,K线图">
 <meta property="og:type" content="article">
 <meta property="og:title" content="7.设置数据">
 <meta property="og:url" content="http://jeffy12138.github.io/2017/08/09/设置数据/index.html">
 <meta property="og:site_name" content="Jeffy&#39;s Blog">
-<meta property="og:description" content="本章介绍了将数据设置到各种类型的图表。 线型图如果要向图表添加值（数据），则必须通过 public  void setData（ChartData data）{ ... } 方法。所述基类ChartData（ChartData）类封装了图表呈现期间所需的所有数据和信息。对于每种类型的图表，存在用于为图表设置数据的ChartData（例如LineData）的不同子类。在构造函数中，您可以将其List">
+<meta property="og:description" content="本章介绍了将数据设置到各种类型的图表。 线型图如果要向图表添加值（数据），则必须通过 public  void setData（ChartData data）{ ... }">
 <meta property="og:image" content="http://i.imgur.com/Il6pI7q.png">
 <meta property="og:image" content="http://i.imgur.com/fPfsGeB.png">
 <meta property="og:image" content="http://i.imgur.com/7iwMlq6.png">
 <meta property="og:image" content="http://i.imgur.com/imhSQEL.png">
-<meta property="og:updated_time" content="2017-08-09T06:16:31.925Z">
+<meta property="og:updated_time" content="2017-08-09T06:19:31.733Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="7.设置数据">
-<meta name="twitter:description" content="本章介绍了将数据设置到各种类型的图表。 线型图如果要向图表添加值（数据），则必须通过 public  void setData（ChartData data）{ ... } 方法。所述基类ChartData（ChartData）类封装了图表呈现期间所需的所有数据和信息。对于每种类型的图表，存在用于为图表设置数据的ChartData（例如LineData）的不同子类。在构造函数中，您可以将其List">
+<meta name="twitter:description" content="本章介绍了将数据设置到各种类型的图表。 线型图如果要向图表添加值（数据），则必须通过 public  void setData（ChartData data）{ ... }">
 <meta name="twitter:image" content="http://i.imgur.com/Il6pI7q.png">
 
 
@@ -422,7 +422,8 @@
         <p>本章介绍了将数据设置到各种类型的图表。</p>
 <h2 id="线型图"><a href="#线型图" class="headerlink" title="线型图"></a>线型图</h2><p>如果要向图表添加值（数据），则必须通过</p>
 <pre><code>public  void setData（ChartData data）{ ... }
-</code></pre><p>方法。所述基类ChartData（ChartData）类封装了图表呈现期间所需的所有数据和信息。对于每种类型的图表，存在用于为图表设置数据的ChartData（例如LineData）的不同子类。在构造函数中，您可以将其List&lt;? extends IDataSet&gt;作为要显示的值进行切换。下面是一个LineData类（extends ChartData）的例子，用于将数据添加到LineChart：</p>
+</code></pre><a id="more"></a>
+<p>方法。所述基类ChartData（ChartData）类封装了图表呈现期间所需的所有数据和信息。对于每种类型的图表，存在用于为图表设置数据的ChartData（例如LineData）的不同子类。在构造函数中，您可以将其List&lt;? extends IDataSet&gt;作为要显示的值进行切换。下面是一个LineData类（extends ChartData）的例子，用于将数据添加到LineChart：</p>
 <pre><code>/**列表构造函数*/
  public LineData（ List &lt; ILineDataSet &gt; sets）{ ... }
 
