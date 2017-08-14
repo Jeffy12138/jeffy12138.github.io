@@ -323,6 +323,204 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://jeffy12138.github.io/2017/08/13/格式化轴值（AxisValueFormatter）/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="吴纪飞">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/me.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Jeffy's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/08/13/格式化轴值（AxisValueFormatter）/" itemprop="url">10.格式化轴值（AxisValueFormatter）</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-08-13T10:47:55+08:00">
+                2017-08-13
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Android/" itemprop="url" rel="index">
+                    <span itemprop="name">Android</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>在版本v3.0.0中引入，此界面允许在绘制之前自定义样式XAxis和YAxis值。</p>
+<h2 id="创建格式化程序"><a href="#创建格式化程序" class="headerlink" title="创建格式化程序"></a>创建格式化程序</h2><p>所有需要对轴进行自定义格式化的值都是创建一个实现IAxisValueFormatter接口的类，如下所示。该格式器用于始终将轴的值格式化为1位十进制数字。</p>
+<pre><code>public class MyYAxisValueFormatter implements IAxisValueFormatter {
+
+    private DecimalFormat mFormat;
+
+    public MyAxisValueFormatter() {
+
+      //格式值为1位十进制数 
+        mFormat = new DecimalFormat(&quot;###,###,##0.0&quot;);
+    }
+
+    @Override
+    public String getFormattedValue(float value, AxisBase axis) {
+          // “value”表示标签在轴上的位置（x或y）
+        return mFormat.format(value) + &quot; $&quot;;
+    }
+
+    /** 只有返回数字时才需要这个，否则返回0 */
+    @Override
+    public int getDecimalDigits() { return 1; }
+}
+</code></pre><p>下面的示例显示了如何将String[]数组绘制到轴上：</p>
+<pre><code>public class MyXAxisValueFormatter implements IAxisValueFormatter {
+
+    private String[] mValues;
+
+    public MyXAxisValueFormatter(String[] values) {
+        this.mValues = values;
+    }
+
+    @Override
+    public String getFormattedValue(float value, AxisBase axis) {
+         // “value”表示标签在轴上的位置（x或y）
+        return mValues[(int) value];
+    }
+
+    /** 只有返回数字时才需要这个，否则返回0 */
+    @Override
+    public int getDecimalDigits() { return 0; }
+}
+</code></pre><h2 id="设置格式器"><a href="#设置格式器" class="headerlink" title="设置格式器"></a>设置格式器</h2><p>在格式化程序创建之后，只需将其设置为您选择的轴：</p>
+<pre><code>YAxis left = chart.getAxisLeft();
+left.setValueFormatter(new MyYAxisValueFormatter());
+
+String[] values = new String[] { ... };
+
+XAxis xAxis = chart.getXAxis();
+xAxis.setValueFormatter(new MyXAxisValueFormatter(values));
+</code></pre><p>而不是从轴最小值到轴最大值的默认值，轴现在将绘制格式化程序指定的数据。</p>
+<h2 id="限制间隔"><a href="#限制间隔" class="headerlink" title="限制间隔"></a>限制间隔</h2><p>如果您使用基于数组索引的格式化程序（如上所述），将轴的最小间隔限制为“1”是有意义的：</p>
+<pre><code>axis.setGranularity(1f); //将间隔限制为1（最小）
+</code></pre><p>这将防止格式化程序绘制重复的轴标签（由轴间隔&lt;1）引起。只要图表的“缩放级别”足够高，它将停止重新计算更小的间隔。</p>
+<h2 id="预定格式化器"><a href="#预定格式化器" class="headerlink" title="预定格式化器"></a>预定格式化器</h2><ul>
+<li>LargeValueFormatter：可用于格式化大值&gt;“1.000”。将“1.000”的值变为“1k”，“1.000.000”将为“1m”（百万），“1.000.000.000”为“1b”（十亿），像万亿的值将为“1t ”。</li>
+<li>PercentFormatter：用于在每个值与1位十进制数字之后显示“％”号。特别有用的PieChart。50 - &gt; 50.0％</li>
+</ul>
+<h2 id="示例格式化器"><a href="#示例格式化器" class="headerlink" title="示例格式化器"></a>示例格式化器</h2><ul>
+<li>DayAxisValueFormatter：此格式化程序将提供的值转换为日期String，根据比例改变字符串。<br>传统格式机</li>
+</ul>
+<p>发布V3.0.0之前，有单独的格式化XAxis和YAxis。这些格式化程序的文档可以在这里找到：</p>
+<ul>
+<li>XAxisValueFormatter</li>
+<li>YAxisValueFormatter</li>
+</ul>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
     <link itemprop="mainEntityOfPage" href="http://jeffy12138.github.io/2017/08/12/格式化数据值（ValueFormatter）/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1634,148 +1832,6 @@ YAxis yAxis = radarChart.getYAxis(); //这个方法只有radarchart
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://jeffy12138.github.io/2017/08/06/MPAndroidChart文档的viki翻译/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="吴纪飞">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/me.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Jeffy's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/08/06/MPAndroidChart文档的viki翻译/" itemprop="url">MPAndroidChart库的viki翻译</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-08-06T17:10:04+08:00">
-                2017-08-06
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Android/" itemprop="url" rel="index">
-                    <span itemprop="name">Android</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>欢迎使用MPAndroidChart库的文档。</p>
-<h2 id="文档章节"><a href="#文档章节" class="headerlink" title="文档章节"></a>文档章节</h2><ol>
-<li><a href="https://jeffy12138.github.io/2017/08/07/%E5%85%A5%E9%97%A8/" title="入门">入门</a></li>
-<li>与图表的相互作用</li>
-<li>突出显示值
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/08/06/MPAndroidChart文档的viki翻译/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -1825,7 +1881,7 @@ YAxis yAxis = radarChart.getYAxis(); //这个方法只有radarchart
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">13</span>
+                <span class="site-state-item-count">14</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
