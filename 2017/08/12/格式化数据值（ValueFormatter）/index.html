@@ -74,7 +74,7 @@
 <link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="MPAndroidChart,K线图," />
 
 
 
@@ -90,15 +90,17 @@
 
 
 
-<meta name="description" content="Do your best">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Jeffy&#39;s Blog">
-<meta property="og:url" content="http://jeffy12138.github.io/tags/辅助功能/index.html">
+<meta name="description" content="自v1.6.2起可用 - 在v2.1.4中更改（改进） 该IValueFormatter可用于创建自定义界面的格式化程序类，允许DataSets在绘制图形之前以特定方式格式化图表中的值（从）。 对于使用IValueFormatter，只需创建一个新类，并让它实现接口并返回任何你想要显示的getFormattedValue(…)方法。 Creating a Formatterpublic class">
+<meta name="keywords" content="MPAndroidChart,K线图">
+<meta property="og:type" content="article">
+<meta property="og:title" content="9.格式化数据值（ValueFormatter）">
+<meta property="og:url" content="http://jeffy12138.github.io/2017/08/12/格式化数据值（ValueFormatter）/index.html">
 <meta property="og:site_name" content="Jeffy&#39;s Blog">
-<meta property="og:description" content="Do your best">
+<meta property="og:description" content="自v1.6.2起可用 - 在v2.1.4中更改（改进） 该IValueFormatter可用于创建自定义界面的格式化程序类，允许DataSets在绘制图形之前以特定方式格式化图表中的值（从）。 对于使用IValueFormatter，只需创建一个新类，并让它实现接口并返回任何你想要显示的getFormattedValue(…)方法。 Creating a Formatterpublic class">
+<meta property="og:updated_time" content="2017-08-14T07:58:37.109Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Jeffy&#39;s Blog">
-<meta name="twitter:description" content="Do your best">
+<meta name="twitter:title" content="9.格式化数据值（ValueFormatter）">
+<meta name="twitter:description" content="自v1.6.2起可用 - 在v2.1.4中更改（改进） 该IValueFormatter可用于创建自定义界面的格式化程序类，允许DataSets在绘制图形之前以特定方式格式化图表中的值（从）。 对于使用IValueFormatter，只需创建一个新类，并让它实现接口并返回任何你想要显示的getFormattedValue(…)方法。 Creating a Formatterpublic class">
 
 
 
@@ -128,13 +130,13 @@
 
 
 
-  <link rel="canonical" href="http://jeffy12138.github.io/tags/辅助功能/"/>
+  <link rel="canonical" href="http://jeffy12138.github.io/2017/08/12/格式化数据值（ValueFormatter）/"/>
 
 
 
 
 
-  <title>标签: 辅助功能 | Jeffy's Blog</title>
+  <title>9.格式化数据值（ValueFormatter） | Jeffy's Blog</title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -159,7 +161,7 @@
     
   
 
-  <div class="container sidebar-position-left  ">
+  <div class="container sidebar-position-left page-post-detail ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -311,44 +313,233 @@
           <div id="content" class="content">
             
 
-  <div id="posts" class="posts-collapse">
-    <div class="collection-title">
-      <h1>辅助功能<small>标签</small>
-      </h1>
-    </div>
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://jeffy12138.github.io/2017/08/12/格式化数据值（ValueFormatter）/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="吴纪飞">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/me.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Jeffy's Blog">
+    </span>
 
     
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">9.格式化数据值（ValueFormatter）</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-08-12T00:00:00+08:00">
+                2017-08-12
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Android/" itemprop="url" rel="index">
+                    <span itemprop="name">Android</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv">本文总阅读量
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>次
+            </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
       
 
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+      
+        <p>自v1.6.2起可用 - 在v2.1.4中更改（改进）</p>
+<p>该IValueFormatter可用于创建自定义界面的格式化程序类，允许DataSets在绘制图形之前以特定方式格式化图表中的值（从）。</p>
+<p>对于使用IValueFormatter，只需创建一个新类，并让它实现接口并返回任何你想要显示的getFormattedValue(…)方法。</p>
+<h2 id="Creating-a-Formatter"><a href="#Creating-a-Formatter" class="headerlink" title="Creating a Formatter"></a>Creating a Formatter</h2><pre><code>public class MyValueFormatter implements IValueFormatter {
 
-      <h2 class="post-title">
+    private DecimalFormat mFormat;
+
+    public MyValueFormatter() {
+    mFormat = new DecimalFormat(&quot;###,###,##0.0&quot;); // 使用一个小数
+    }
+
+    @Override
+    public String getFormattedValue(float value, Entry entry, int dataSetIndex, ViewPortHandler viewPortHandler) {
+    //在这里写你的逻辑
+    return mFormat.format(value) + &quot; $&quot;; //例如附加一个美元符号
+    }
+}
+</code></pre><a id="more"></a>
+<p>然后，将您的格式化器设置给ChartData或DataSet对象：</p>
+<pre><code>//对整个数据对象使用 
+lineData.setValueFormatter（ new  MyValueFormatter（））;
+
+//对个别数据集对象使用 
+lineDataSet.setValueFormatter（ new  MyValueFormatter（））;
+</code></pre><h2 id="Predefined-Formatters"><a href="#Predefined-Formatters" class="headerlink" title="Predefined Formatters"></a>Predefined Formatters</h2><ul>
+<li>LargeValueFormatter：可用于格式化大值&gt;“1.000”。将“1.000”的值变为“1k”，“1.000.000”将为“1m”（百万），“1.000.000.000”为“1b”（十亿），像万亿的值将为“1t ”。</li>
+<li>PercentFormatter：用于在每个值与1位十进制数字之后显示“％”号。特别有用的PieChart。50 - &gt; 50.0％</li>
+<li>StackedValueFormatter：专门设计用于堆叠的格式化程序BarChart。它允许指定是否应绘制所有堆栈值或仅指定最大值。</li>
+</ul>
+
+      
+    </div>
+
+    <div>
+      
         
-            <a class="post-title-link" href="/2017/05/10/Android-Accessibility-辅助功能-学习/" itemprop="url">
-              
-                <span itemprop="name">Android Accessibility(辅助功能)学习</span>
-              
-            </a>
+
+      
+    </div>
+
+    <div>
+      
         
-      </h2>
+  <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+    <div>坚持原创技术分享，您的支持将鼓励我继续创作！</div>
+    <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+      <span>赏</span>
+    </button>
+    <div id="QR" style="display: none;">
+      
+        <div id="wechat" style="display: inline-block">
+          <img id="wechat_qr" src="/images/ds_wx.jpg" alt="吴纪飞 WeChat Pay"/>
+          <p>微信打赏</p>
+        </div>
+      
+      
+        <div id="alipay" style="display: inline-block">
+          <img id="alipay_qr" src="/images/ds_zfb.jpg" alt="吴纪飞 Alipay"/>
+          <p>支付宝打赏</p>
+        </div>
+      
+    </div>
+  </div>
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-05-10T17:10:04+08:00"
-              content="2017-05-10" >
-          05-10
-        </time>
-      </div>
 
-    </header>
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/MPAndroidChart/" rel="tag"># MPAndroidChart</a>
+          
+            <a href="/tags/K线图/" rel="tag"># K线图</a>
+          
+        </div>
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/08/09/设置数据/" rel="next" title="7.设置数据">
+                <i class="fa fa-chevron-left"></i> 7.设置数据
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/08/12/设置颜色/" rel="prev" title="8.设置颜色">
+                8.设置颜色 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </article>
 
 
-    
-  </div>
 
-  
+    <div class="post-spread">
+      
+        <div class="bdsharebuttonbox"><a href="#" class="bds_more" data-cmd="more"></a><a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"></a><a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a><a href="#" class="bds_tqq" data-cmd="tqq" title="分享到腾讯微博"></a><a href="#" class="bds_renren" data-cmd="renren" title="分享到人人网"></a><a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a></div>
+<script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"1","bdSize":"24"},"share":{},"image":{"viewList":["qzone","tsina","tqq","renren","weixin"],"viewText":"分享到：","viewSize":"16"},"selectShare":{"bdContainerClass":null,"bdSelectMiniList":["qzone","tsina","tqq","renren","weixin"]}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
+      
+    </div>
+  </div>
 
 
           </div>
@@ -356,6 +547,12 @@
 
 
           
+  <div class="comments" id="comments">
+    
+      <div id="lv-container" data-id="city" data-uid="MTAyMC8yODY4NS81MjU2"></div>
+    
+  </div>
+
 
         </div>
         
@@ -375,8 +572,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/me.jpg"
@@ -465,6 +671,22 @@
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Creating-a-Formatter"><span class="nav-number">1.</span> <span class="nav-text">Creating a Formatter</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Predefined-Formatters"><span class="nav-number">2.</span> <span class="nav-text">Predefined Formatters</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -613,6 +835,10 @@
 
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.1"></script>
+
+
 
   
 
@@ -647,6 +873,17 @@
 
 
 
+  
+    <script type="text/javascript">
+      (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
+        if (typeof LivereTower === 'function') { return; }
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+        e.parentNode.insertBefore(j, e);
+      })(document, 'script');
+    </script>
   
 
 

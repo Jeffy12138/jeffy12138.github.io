@@ -392,7 +392,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">12</span>
+                <span class="site-state-item-count">13</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -994,7 +994,13 @@
 
 </body>
 </html>
-       while (indexOfContent.length != 0) {
+     var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
                     var item = indexOfContent[indexOfContent.length - 1];
                     var position = item.position;
                     var word = item.word;
