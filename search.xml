@@ -2,7 +2,7 @@
 <search>
   <entry>
     <title><![CDATA[8.设置颜色]]></title>
-    <url>%2F2017%2F08%2F09%2F%E8%AE%BE%E7%BD%AE%E9%A2%9C%E8%89%B2%2F</url>
+    <url>%2F2017%2F08%2F12%2F%E8%AE%BE%E7%BD%AE%E9%A2%9C%E8%89%B2%2F</url>
     <content type="text"><![CDATA[自版本v1.4.0以来，ColorTemplate不再是需要负责在以前版本中设置颜色的对象。然而，它仍然保留所有预定义的颜色阵列（例如，ColorTemplate.VORDIPLOM_COLORS并提供将颜色从资源（资源整数）转换为“真实”颜色的便利方法。 而取代ColorTemplate，现在可以直接通过DataSet对象指定颜色，这允许为每个DataSet对象分别设计样式。 在这个简短的例子中，我们有两个不同的LineDataSet对象代表了两家公司的季度收入（以前在“ 设置数据”教程中提到），我们现在要设置不同的颜色。 我们想要什么 “公司1”的值应由颜色“红色”的四种不同变体表示“公司2”的值应由颜色“绿色”的四种不同变体表示这是代码如下所示： LineDataSet setComp1 = new LineDataSet（valsComp1，“ Company 1 ”）; //为数据集设置颜色，资源名称的分辨率为“真实”颜色在内部完成的 setComp1.setColors(new int[] { R.color.red1, R.color.red2, R.color.red3, R.color.red4 }, Context); LineDataSet setComp2 = new LineDataSet(valsComp2, &quot;Company 2&quot;); setComp2.setColors(new int[] { R.color.green1, R.color.green2, R.color.green3, R.color.green4 }, Context); 此外，还有许多其他方法可以设置颜色DataSet。以下是完整的文档： setColors(int [] colors, Context c)：设置在DataSet之前应该使用的颜色。数据集表示的条目数量高于颜色数组的大小时，颜色将重新使用。您可以使用“new int [] {R.color.red，R.color.green，…}”为此方法提供颜色。在内部，颜色使用getResources（）getColor（…）解析。 setColors(int [] colors)：设置在DataSet之前应该使用的颜色。数据集表示的条目数量高于颜色数组的大小时，颜色将重新使用。在将它们添加到DataSet之前，请确保颜色已经准备好了（通过调用getResources（）。getColor（…））。 setColors(ArrayList colors)：设置在DataSet之前应该使用的颜色。数据集表示的条目数量高于颜色数组的大小时，颜色将重新使用。在将它们添加到DataSet之前，请确保颜色已经准备好了（通过调用getResources（）。getColor（…））。 setColor(int color)：设置应该用于此DataSet的一个和唯一的颜色。在内部，这将重新创建颜色数组并添加指定的颜色。 ColorTemplate 例： LineDataSet set = new LineDataSet(...); set.setColors(ColorTemplate.VORDIPLOM_COLORS); 如果没有为一个DataSet设置颜色，则使用默认颜色。]]></content>
       <categories>
         <category>Android</category>
