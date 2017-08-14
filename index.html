@@ -412,28 +412,16 @@
 
       
         
-          
-            <p>本节重点介绍此库适用于所有Chart类型的的设置和样式。</p>
+          <p>本节重点介绍此库适用于所有Chart类型的的设置和样式。</p>
 <h2 id="刷新"><a href="#刷新" class="headerlink" title="刷新"></a>刷新</h2><p>invalidate()：在图表上调用此方法将刷新（重绘）。这是为了使在图表上执行的更改生效而需要的。<br>notifyDataSetChanged()：让图表知道底层数据已经改变，并执行所有必要的重新计算（偏移，图例，最大值，最小值，…）。特别是在动态添加数据时尤其如此。</p>
 <h2 id="记录"><a href="#记录" class="headerlink" title="记录"></a>记录</h2><p>setLogEnabled(boolean enabled)：将其设置为true将激活图表logcat输出。启用此功能对于性能不利，如果不需要，请保持禁用。<br>一般图表样式</p>
-<p>以下是您可以直接在图表上使用的一些一般样式方法：</p>
-<ul>
-<li>setBackgroundColor(int color)：设置覆盖整个图表视图的背景颜色。另外，.xml在布局文件中可以设置背景颜色。</li>
-<li>setDescription(String desc)：设置出现在图表右下角的描述文字。</li>
-<li>setDescriptionColor(int color)：设置说明文字的颜色。</li>
-<li>setDescriptionPosition(float x, float y)：设置屏幕上描述文本的自定义位置（以像素为单位）。</li>
-<li>setDescriptionTypeface(Typeface t)：设置Typeface用于绘制描述文本的用法。</li>
-<li>setDescriptionTextSize(float size)：设置描述文本的大小，以像素为单位，最小6f，最大16f。</li>
-<li>setNoDataText(String text)：设置图表为空时应显示的文本。</li>
-<li>setDrawGridBackground(boolean enabled)：如果启用，将绘制图表绘图区域后面的背景矩形。</li>
-<li>setGridBackgroundColor(int color)：设置网格背景应绘制的颜色。</li>
-<li>setDrawBorders(boolean enabled)：启用/禁用绘制图表边框（图表周围的线）。</li>
-<li>setBorderColor(int color)：设置图表边框线的颜色。</li>
-<li>setBorderWidth(float width)：设置dp中图表边界线的宽度。</li>
-<li>setMaxVisibleValueCount(int count)：设置图表上最大可见绘制值标签的数量。setDrawValues()启用后才会生效。</li>
-</ul>
-
-          
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/08/13/一般设置和样式/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -564,8 +552,7 @@
 
       
         
-          
-            <p>在版本v3.0.0中引入，此界面允许在绘制之前自定义样式XAxis和YAxis值。</p>
+          <p>在版本v3.0.0中引入，此界面允许在绘制之前自定义样式XAxis和YAxis值。</p>
 <h2 id="创建格式化程序"><a href="#创建格式化程序" class="headerlink" title="创建格式化程序"></a>创建格式化程序</h2><p>所有需要对轴进行自定义格式化的值都是创建一个实现IAxisValueFormatter接口的类，如下所示。该格式器用于始终将轴的值格式化为1位十进制数字。</p>
 <pre><code>public class MyYAxisValueFormatter implements IAxisValueFormatter {
 
@@ -587,51 +574,14 @@
     @Override
     public int getDecimalDigits() { return 1; }
 }
-</code></pre><p>下面的示例显示了如何将String[]数组绘制到轴上：</p>
-<pre><code>public class MyXAxisValueFormatter implements IAxisValueFormatter {
-
-    private String[] mValues;
-
-    public MyXAxisValueFormatter(String[] values) {
-        this.mValues = values;
-    }
-
-    @Override
-    public String getFormattedValue(float value, AxisBase axis) {
-         // “value”表示标签在轴上的位置（x或y）
-        return mValues[(int) value];
-    }
-
-    /** 只有返回数字时才需要这个，否则返回0 */
-    @Override
-    public int getDecimalDigits() { return 0; }
-}
-</code></pre><h2 id="设置格式器"><a href="#设置格式器" class="headerlink" title="设置格式器"></a>设置格式器</h2><p>在格式化程序创建之后，只需将其设置为您选择的轴：</p>
-<pre><code>YAxis left = chart.getAxisLeft();
-left.setValueFormatter(new MyYAxisValueFormatter());
-
-String[] values = new String[] { ... };
-
-XAxis xAxis = chart.getXAxis();
-xAxis.setValueFormatter(new MyXAxisValueFormatter(values));
-</code></pre><p>而不是从轴最小值到轴最大值的默认值，轴现在将绘制格式化程序指定的数据。</p>
-<h2 id="限制间隔"><a href="#限制间隔" class="headerlink" title="限制间隔"></a>限制间隔</h2><p>如果您使用基于数组索引的格式化程序（如上所述），将轴的最小间隔限制为“1”是有意义的：</p>
-<pre><code>axis.setGranularity(1f); //将间隔限制为1（最小）
-</code></pre><p>这将防止格式化程序绘制重复的轴标签（由轴间隔&lt;1）引起。只要图表的“缩放级别”足够高，它将停止重新计算更小的间隔。</p>
-<h2 id="预定格式化器"><a href="#预定格式化器" class="headerlink" title="预定格式化器"></a>预定格式化器</h2><ul>
-<li>LargeValueFormatter：可用于格式化大值&gt;“1.000”。将“1.000”的值变为“1k”，“1.000.000”将为“1m”（百万），“1.000.000.000”为“1b”（十亿），像万亿的值将为“1t ”。</li>
-<li>PercentFormatter：用于在每个值与1位十进制数字之后显示“％”号。特别有用的PieChart。50 - &gt; 50.0％</li>
-</ul>
-<h2 id="示例格式化器"><a href="#示例格式化器" class="headerlink" title="示例格式化器"></a>示例格式化器</h2><ul>
-<li>DayAxisValueFormatter：此格式化程序将提供的值转换为日期String，根据比例改变字符串。<br>传统格式机</li>
-</ul>
-<p>发布V3.0.0之前，有单独的格式化XAxis和YAxis。这些格式化程序的文档可以在这里找到：</p>
-<ul>
-<li>XAxisValueFormatter</li>
-<li>YAxisValueFormatter</li>
-</ul>
-
-          
+</code></pre>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/08/13/格式化轴值（AxisValueFormatter）/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>

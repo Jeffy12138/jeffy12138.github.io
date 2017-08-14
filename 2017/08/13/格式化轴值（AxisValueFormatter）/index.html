@@ -97,7 +97,7 @@
 <meta property="og:url" content="http://jeffy12138.github.io/2017/08/13/格式化轴值（AxisValueFormatter）/index.html">
 <meta property="og:site_name" content="Jeffy&#39;s Blog">
 <meta property="og:description" content="在版本v3.0.0中引入，此界面允许在绘制之前自定义样式XAxis和YAxis值。 创建格式化程序所有需要对轴进行自定义格式化的值都是创建一个实现IAxisValueFormatter接口的类，如下所示。该格式器用于始终将轴的值格式化为1位十进制数字。 public class MyYAxisValueFormatter implements IAxisValueFormatter {">
-<meta property="og:updated_time" content="2017-08-14T08:18:37.302Z">
+<meta property="og:updated_time" content="2017-08-14T08:41:43.814Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="10.格式化轴值（AxisValueFormatter）">
 <meta name="twitter:description" content="在版本v3.0.0中引入，此界面允许在绘制之前自定义样式XAxis和YAxis值。 创建格式化程序所有需要对轴进行自定义格式化的值都是创建一个实现IAxisValueFormatter接口的类，如下所示。该格式器用于始终将轴的值格式化为1位十进制数字。 public class MyYAxisValueFormatter implements IAxisValueFormatter {">
@@ -436,7 +436,8 @@
     @Override
     public int getDecimalDigits() { return 1; }
 }
-</code></pre><p>下面的示例显示了如何将String[]数组绘制到轴上：</p>
+</code></pre><a id="more"></a>
+<p>下面的示例显示了如何将String[]数组绘制到轴上：</p>
 <pre><code>public class MyXAxisValueFormatter implements IAxisValueFormatter {
 
     private String[] mValues;
