@@ -101,7 +101,7 @@
 <meta property="og:image" content="http://i.imgur.com/fPfsGeB.png">
 <meta property="og:image" content="http://i.imgur.com/7iwMlq6.png">
 <meta property="og:image" content="http://i.imgur.com/imhSQEL.png">
-<meta property="og:updated_time" content="2017-08-09T06:19:31.733Z">
+<meta property="og:updated_time" content="2017-08-09T06:21:23.029Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="7.设置数据">
 <meta name="twitter:description" content="本章介绍了将数据设置到各种类型的图表。 线型图如果要向图表添加值（数据），则必须通过 public  void setData（ChartData data）{ ... }">
@@ -495,7 +495,7 @@ xAxis.setValueFormatter（格式化器）;
 <pre><code>List&lt;Entry&gt; entries = ...;
 Collections.sort(entries, new EntryXComparator());
 </code></pre><p>必需是这样的原因是因为库使用二进制搜索算法来获得更好的性能，只能在排序列表上工作。</p>
-<h2 id="BARCHART"><a href="#BARCHART" class="headerlink" title="BARCHART"></a>BARCHART</h2><p>a BarChart设置数据的方式非常类似于LineChart。主要区别是需要用于设置数据的数据对象（例如，BarEntry而不是Entry）。除此之外，BarChart还有不同的风格选择。</p>
+<h2 id="BarChart"><a href="#BarChart" class="headerlink" title="BarChart"></a>BarChart</h2><p>a BarChart设置数据的方式非常类似于LineChart。主要区别是需要用于设置数据的数据对象（例如，BarEntry而不是Entry）。除此之外，BarChart还有不同的风格选择。</p>
 <p>请考虑以下填写BarChart数据的示例：</p>
 <pre><code>List&lt;BarEntry&gt; entries = new ArrayList&lt;&gt;();
 entries.add(new BarEntry(0f, 30f));
@@ -650,6 +650,10 @@ pieChart.invalidate(); // refresh
 
           <div class="post-nav-prev post-nav-item">
             
+              <a href="/2017/08/09/设置颜色/" rel="prev" title="8.设置颜色">
+                8.设置颜色 <i class="fa fa-chevron-right"></i>
+              </a>
+            
           </div>
         </div>
       
@@ -725,7 +729,7 @@ pieChart.invalidate(); // refresh
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">11</span>
+                <span class="site-state-item-count">12</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -809,7 +813,7 @@ pieChart.invalidate(); // refresh
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#线型图"><span class="nav-number">1.</span> <span class="nav-text">线型图</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#条目的顺序"><span class="nav-number">2.</span> <span class="nav-text">条目的顺序</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#BARCHART"><span class="nav-number">3.</span> <span class="nav-text">BARCHART</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#分组BarChart"><span class="nav-number">4.</span> <span class="nav-text">分组BarChart</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#堆叠BarChart"><span class="nav-number">5.</span> <span class="nav-text">堆叠BarChart</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#PieChart"><span class="nav-number">6.</span> <span class="nav-text">PieChart</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#线型图"><span class="nav-number">1.</span> <span class="nav-text">线型图</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#条目的顺序"><span class="nav-number">2.</span> <span class="nav-text">条目的顺序</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#BarChart"><span class="nav-number">3.</span> <span class="nav-text">BarChart</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#分组BarChart"><span class="nav-number">4.</span> <span class="nav-text">分组BarChart</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#堆叠BarChart"><span class="nav-number">5.</span> <span class="nav-text">堆叠BarChart</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#PieChart"><span class="nav-number">6.</span> <span class="nav-text">PieChart</span></a></li></ol></div>
             
 
           </div>

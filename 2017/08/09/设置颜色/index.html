@@ -90,17 +90,17 @@
 
 
 
-<meta name="description" content="本节重点介绍基于版本v3.0.0，通过点击手势和编程方式突出显示图表中的条目的主题 启用/禁用突出显示 setHighlightPerDragEnabled(boolean enabled)：将其设置为true Chart，以便在完全缩小时在图表上拖动时突出显示。默认值：true setHighlightPerTapEnabled(boolean enabled)：将其设置为false，Chart">
+<meta name="description" content="自版本v1.4.0以来，ColorTemplate不再是需要负责在以前版本中设置颜色的对象。然而，它仍然保留所有预定义的颜色阵列（例如，ColorTemplate.VORDIPLOM_COLORS并提供将颜色从资源（资源整数）转换为“真实”颜色的便利方法。 而取代ColorTemplate，现在可以直接通过DataSet对象指定颜色，这允许为每个DataSet对象分别设计样式。 在这个简短的例子中">
 <meta name="keywords" content="MPAndroidChart,K线图">
 <meta property="og:type" content="article">
-<meta property="og:title" content="3.突出显示值">
-<meta property="og:url" content="http://jeffy12138.github.io/2017/08/08/突出显示值/index.html">
+<meta property="og:title" content="8.设置颜色">
+<meta property="og:url" content="http://jeffy12138.github.io/2017/08/09/设置颜色/index.html">
 <meta property="og:site_name" content="Jeffy&#39;s Blog">
-<meta property="og:description" content="本节重点介绍基于版本v3.0.0，通过点击手势和编程方式突出显示图表中的条目的主题 启用/禁用突出显示 setHighlightPerDragEnabled(boolean enabled)：将其设置为true Chart，以便在完全缩小时在图表上拖动时突出显示。默认值：true setHighlightPerTapEnabled(boolean enabled)：将其设置为false，Chart">
-<meta property="og:updated_time" content="2017-08-08T05:40:29.286Z">
+<meta property="og:description" content="自版本v1.4.0以来，ColorTemplate不再是需要负责在以前版本中设置颜色的对象。然而，它仍然保留所有预定义的颜色阵列（例如，ColorTemplate.VORDIPLOM_COLORS并提供将颜色从资源（资源整数）转换为“真实”颜色的便利方法。 而取代ColorTemplate，现在可以直接通过DataSet对象指定颜色，这允许为每个DataSet对象分别设计样式。 在这个简短的例子中">
+<meta property="og:updated_time" content="2017-08-14T07:45:35.062Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="3.突出显示值">
-<meta name="twitter:description" content="本节重点介绍基于版本v3.0.0，通过点击手势和编程方式突出显示图表中的条目的主题 启用/禁用突出显示 setHighlightPerDragEnabled(boolean enabled)：将其设置为true Chart，以便在完全缩小时在图表上拖动时突出显示。默认值：true setHighlightPerTapEnabled(boolean enabled)：将其设置为false，Chart">
+<meta name="twitter:title" content="8.设置颜色">
+<meta name="twitter:description" content="自版本v1.4.0以来，ColorTemplate不再是需要负责在以前版本中设置颜色的对象。然而，它仍然保留所有预定义的颜色阵列（例如，ColorTemplate.VORDIPLOM_COLORS并提供将颜色从资源（资源整数）转换为“真实”颜色的便利方法。 而取代ColorTemplate，现在可以直接通过DataSet对象指定颜色，这允许为每个DataSet对象分别设计样式。 在这个简短的例子中">
 
 
 
@@ -130,13 +130,13 @@
 
 
 
-  <link rel="canonical" href="http://jeffy12138.github.io/2017/08/08/突出显示值/"/>
+  <link rel="canonical" href="http://jeffy12138.github.io/2017/08/09/设置颜色/"/>
 
 
 
 
 
-  <title>3.突出显示值 | Jeffy's Blog</title>
+  <title>8.设置颜色 | Jeffy's Blog</title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -323,7 +323,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://jeffy12138.github.io/2017/08/08/突出显示值/">
+    <link itemprop="mainEntityOfPage" href="http://jeffy12138.github.io/2017/08/09/设置颜色/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="吴纪飞">
@@ -340,7 +340,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">3.突出显示值</h1>
+          <h1 class="post-title" itemprop="name headline">8.设置颜色</h1>
         
 
         <div class="post-meta">
@@ -352,8 +352,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-08-08T18:20:22+08:00">
-                2017-08-08
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-08-09T11:55:01+08:00">
+                2017-08-09
               </time>
             
 
@@ -414,58 +414,29 @@
       
 
       
-        <p>本节重点介绍基于版本v3.0.0，通过点击手势和编程方式突出显示图表中的条目的主题</p>
-<h2 id="启用-禁用突出显示"><a href="#启用-禁用突出显示" class="headerlink" title="启用/禁用突出显示"></a>启用/禁用突出显示</h2><ul>
-<li>setHighlightPerDragEnabled(boolean enabled)：将其设置为true Chart，以便在完全缩小时在图表上拖动时突出显示。默认值：true</li>
-<li>setHighlightPerTapEnabled(boolean enabled)：将其设置为false，Chart以防止点击手势突出显示值。仍然可以通过拖动或以编程方式突出显示值。默认值：true</li>
-<li>setMaxHighlightDistance(float distanceDp)：设置dp中的最大高亮距离。图表上远离条目的图表距离不会触发高亮。默认值：500dp</li>
+        <p>自版本v1.4.0以来，ColorTemplate不再是需要负责在以前版本中设置颜色的对象。然而，它仍然保留所有预定义的颜色阵列（例如，ColorTemplate.VORDIPLOM_COLORS并提供将颜色从资源（资源整数）转换为“真实”颜色的便利方法。</p>
+<p>而取代ColorTemplate，现在可以直接通过DataSet对象指定颜色，这允许为每个DataSet对象分别设计样式。</p>
+<p>在这个简短的例子中，我们有两个不同的LineDataSet对象代表了两家公司的季度收入（以前在“ 设置数据”教程中提到），我们现在要设置不同的颜色。</p>
+<p>我们想要什么</p>
+<p>“公司1”的值应由颜色“红色”的四种不同变体表示<br>“公司2”的值应由颜色“绿色”的四种不同变体表示<br>这是代码如下所示：</p>
+<pre><code>LineDataSet setComp1 =  new  LineDataSet（valsComp1，“ Company 1 ”）;
+//为数据集设置颜色，资源名称的分辨率为“真实”颜色在内部完成的 
+setComp1.setColors(new int[] { R.color.red1, R.color.red2, R.color.red3, R.color.red4 }, Context);
+
+LineDataSet setComp2 = new LineDataSet(valsComp2, &quot;Company 2&quot;);
+setComp2.setColors(new int[] { R.color.green1, R.color.green2, R.color.green3, R.color.green4 }, Context);
+</code></pre><p>此外，还有许多其他方法可以设置颜色DataSet。以下是完整的文档：</p>
+<ul>
+<li>setColors(int [] colors, Context c)：设置在DataSet之前应该使用的颜色。数据集表示的条目数量高于颜色数组的大小时，颜色将重新使用。您可以使用“new int [] {R.color.red，R.color.green，…}”为此方法提供颜色。在内部，颜色使用getResources（）getColor（…）解析。</li>
+<li>setColors(int [] colors)：设置在DataSet之前应该使用的颜色。数据集表示的条目数量高于颜色数组的大小时，颜色将重新使用。在将它们添加到DataSet之前，请确保颜色已经准备好了（通过调用getResources（）。getColor（…））。</li>
+<li>setColors(ArrayList<integer> colors)：设置在DataSet之前应该使用的颜色。数据集表示的条目数量高于颜色数组的大小时，颜色将重新使用。在将它们添加到DataSet之前，请确保颜色已经准备好了（通过调用getResources（）。getColor（…））。</integer></li>
+<li>setColor(int color)：设置应该用于此DataSet的一个和唯一的颜色。在内部，这将重新创建颜色数组并添加指定的颜色。</li>
 </ul>
-<p>除此之外，可以为单个DataSet对象配置突出显示：</p>
-<pre><code> dataSet.setHighlightEnabled(true); //允许突出显示DataSet
+<p>ColorTemplate 例：</p>
+<pre><code>LineDataSet set = new LineDataSet(...);
+set.setColors(ColorTemplate.VORDIPLOM_COLORS);
+</code></pre><p>如果没有为一个DataSet设置颜色，则使用默认颜色。</p>
 
- //将此设置为false可禁用高亮指示符（lines） 
- dataSet.setDrawHighlightIndicators(true); 
- dataSet.setHighlightColor(Color.BLACK); // color for highlight indicator 
-// and more ...
-</code></pre><a id="more"></a>
-<h2 id="以编程方式突出显示"><a href="#以编程方式突出显示" class="headerlink" title="以编程方式突出显示"></a>以编程方式突出显示</h2><ul>
-<li>highlightValue(float x, int dataSetIndex, boolean callListener)：突出显示给定DataSet中给定x位置的值。提供-1作为dataSetIndex以撤消所有突出显示。布尔标志决定了应该调用选择侦听器。</li>
-<li>highlightValue(Highlight high, boolean callListener)：突出显示提供的Highlight对象所代表的值。提供null以撤销所有突出显示。布尔标志决定了应该调用选择侦听器。</li>
-<li>highlightValues(Highlight[] highs)：突出显示给定Highlight[]数组所表示的值。提供null或一个空数组来撤消所有突出显示。</li>
-<li>getHighlighted()：返回一个Highlight[]数组，其中包含有关所有突出显示的条目及其x-index和dataset-index的信息。</li>
-</ul>
-<h2 id="选择回调"><a href="#选择回调" class="headerlink" title="选择回调"></a>选择回调</h2><p>该库在交互时提供了许多用于回调的侦听器。其中一个是OnChartValueSelectedListener通过触摸突出显示值时的回调：</p>
-<pre><code>public interface OnChartValueSelectedListener {
- / ** 
-   *当在图表中选择了一个值时调用。
-   * 
-   * @param e所选条目。
-   * @param h相应的突出显示对象，其中包含关于突出显示位置的信息
-
-   * / 
-  public void onValueSelected（Entry e，Highlight h）;
-/ **     
-  *当没有选择任何东西或进行“未选择”时调用。
-  * / 
-  public void onNothingSelected（）;    
-
-}
-</code></pre><p>只需让你的应该接收回调的类实现这个接口并将其设置为监听器到图表：</p>
-<pre><code>chart.setOnChartValueSelectedListener(this);
-</code></pre><h2 id="亮点类"><a href="#亮点类" class="headerlink" title="亮点类"></a>亮点类</h2><p>所述Highlight类表示与突出相关联的所有数据Entry，如突出显示的Entry对象本身，DataSet它属于，它的绘图表面更上的位置。它可以用于获取有关已经突出显示的信息Entry，或用于提供信息以Chart供Entry高亮显示。为此目的，Highlight该类提供了两个构造函数：</p>
-<pre><code>/**标准亮点的构造函数* /
-   public Highlight（ float x， int dataSetIndex）{ ... }
-
-/**堆叠BarEntry高亮度的构造函数* /
-   public Highlight（ float x， int dataSetIndex， int stackIndex）{ ... }
-</code></pre><p>这些构造函数可用于创建Highlight允许以编程方式执行突出显示的对象：</p>
-<pre><code>//突出显示第一个（0）数据集中的条目和x位置50 
-   Highlight highlight = new Highlight(50f, 0); 
-
-   chart.highlightValue(highlight, false);  //突出显示此值，不要调用监听器
-</code></pre><h2 id="自定义荧光笔"><a href="#自定义荧光笔" class="headerlink" title="自定义荧光笔"></a>自定义荧光笔</h2><p>所有以高亮手势形式显示的用户输入都由默认ChartHighlighter类进行内部处理。使用以下方法可以使用自定义实现替换默认的highligher：</p>
-<pre><code>setHighlighter(ChartHighlighter highlighter)：为处理/处理在图表视图中执行的所有突出显示触摸事件的图表设置自定义高亮对象。您的自定义荧光笔对象需要扩展ChartHighlighter类。
-</code></pre>
       
     </div>
 
@@ -530,8 +501,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/08/08/与图表的互动/" rel="next" title="2.与图表的互动">
-                <i class="fa fa-chevron-left"></i> 2.与图表的互动
+              <a href="/2017/08/09/设置数据/" rel="next" title="7.设置数据">
+                <i class="fa fa-chevron-left"></i> 7.设置数据
               </a>
             
           </div>
@@ -539,10 +510,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/08/08/轴（AxisBase）/" rel="prev" title="4.轴（AxisBase）">
-                4.轴（AxisBase） <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -594,17 +561,8 @@
       
 
       
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
-            文章目录
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview">
-            站点概览
-          </li>
-        </ul>
-      
 
-      <section class="site-overview sidebar-panel">
+      <section class="site-overview sidebar-panel sidebar-panel-active">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/me.jpg"
@@ -693,22 +651,6 @@
 
       </section>
 
-      
-      <!--noindex-->
-        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-
-            
-              
-            
-
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#启用-禁用突出显示"><span class="nav-number">1.</span> <span class="nav-text">启用/禁用突出显示</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#以编程方式突出显示"><span class="nav-number">2.</span> <span class="nav-text">以编程方式突出显示</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#选择回调"><span class="nav-number">3.</span> <span class="nav-text">选择回调</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#亮点类"><span class="nav-number">4.</span> <span class="nav-text">亮点类</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#自定义荧光笔"><span class="nav-number">5.</span> <span class="nav-text">自定义荧光笔</span></a></li></ol></div>
-            
-
-          </div>
-        </section>
-      <!--/noindex-->
       
 
       
