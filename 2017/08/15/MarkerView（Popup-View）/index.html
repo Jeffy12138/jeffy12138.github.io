@@ -90,17 +90,17 @@
 
 
 
-<meta name="description" content="这个wiki页面的重点介绍AxisBase类，它是XAxis（X轴）和YAxis（Y轴）两者的基类，在v2.0.0中引入。 下面提到的以下方法可以应用于两个轴。 这个轴类允许特定的样式，包括（可以包括）以下组件/部件：  标签（以垂直（y轴）或水平（x轴）对齐绘制），其中包含轴描述值 所谓的“轴线”被直接绘制在标签上并与之平行 “网格线”，各自源自水平方向的轴标签 LimitLines允许提供特殊">
+<meta name="description" content="自版本v3.0.0以来，图表中的标记（弹出式视图）由IMarker界面表示。 IMarker界面此界面允许您创建在图表中突出显示的条目上显示的自定义标记视图。界面提供的方法如下：">
 <meta name="keywords" content="MPAndroidChart,K线图">
 <meta property="og:type" content="article">
-<meta property="og:title" content="4.轴（AxisBase）">
-<meta property="og:url" content="http://jeffy12138.github.io/2017/08/08/轴（AxisBase）/index.html">
+<meta property="og:title" content="17.MarkerView（Popup View）">
+<meta property="og:url" content="http://jeffy12138.github.io/2017/08/15/MarkerView（Popup-View）/index.html">
 <meta property="og:site_name" content="Jeffy&#39;s Blog">
-<meta property="og:description" content="这个wiki页面的重点介绍AxisBase类，它是XAxis（X轴）和YAxis（Y轴）两者的基类，在v2.0.0中引入。 下面提到的以下方法可以应用于两个轴。 这个轴类允许特定的样式，包括（可以包括）以下组件/部件：  标签（以垂直（y轴）或水平（x轴）对齐绘制），其中包含轴描述值 所谓的“轴线”被直接绘制在标签上并与之平行 “网格线”，各自源自水平方向的轴标签 LimitLines允许提供特殊">
-<meta property="og:updated_time" content="2017-08-08T05:57:48.502Z">
+<meta property="og:description" content="自版本v3.0.0以来，图表中的标记（弹出式视图）由IMarker界面表示。 IMarker界面此界面允许您创建在图表中突出显示的条目上显示的自定义标记视图。界面提供的方法如下：">
+<meta property="og:updated_time" content="2017-08-15T08:04:08.898Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="4.轴（AxisBase）">
-<meta name="twitter:description" content="这个wiki页面的重点介绍AxisBase类，它是XAxis（X轴）和YAxis（Y轴）两者的基类，在v2.0.0中引入。 下面提到的以下方法可以应用于两个轴。 这个轴类允许特定的样式，包括（可以包括）以下组件/部件：  标签（以垂直（y轴）或水平（x轴）对齐绘制），其中包含轴描述值 所谓的“轴线”被直接绘制在标签上并与之平行 “网格线”，各自源自水平方向的轴标签 LimitLines允许提供特殊">
+<meta name="twitter:title" content="17.MarkerView（Popup View）">
+<meta name="twitter:description" content="自版本v3.0.0以来，图表中的标记（弹出式视图）由IMarker界面表示。 IMarker界面此界面允许您创建在图表中突出显示的条目上显示的自定义标记视图。界面提供的方法如下：">
 
 
 
@@ -130,13 +130,13 @@
 
 
 
-  <link rel="canonical" href="http://jeffy12138.github.io/2017/08/08/轴（AxisBase）/"/>
+  <link rel="canonical" href="http://jeffy12138.github.io/2017/08/15/MarkerView（Popup-View）/"/>
 
 
 
 
 
-  <title>4.轴（AxisBase） | Jeffy's Blog</title>
+  <title>17.MarkerView（Popup View） | Jeffy's Blog</title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -323,7 +323,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://jeffy12138.github.io/2017/08/08/轴（AxisBase）/">
+    <link itemprop="mainEntityOfPage" href="http://jeffy12138.github.io/2017/08/15/MarkerView（Popup-View）/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="吴纪飞">
@@ -340,7 +340,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">4.轴（AxisBase）</h1>
+          <h1 class="post-title" itemprop="name headline">17.MarkerView（Popup View）</h1>
         
 
         <div class="post-meta">
@@ -352,8 +352,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-08-08T19:17:09+08:00">
-                2017-08-08
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-08-15T09:04:56+08:00">
+                2017-08-15
               </time>
             
 
@@ -414,69 +414,102 @@
       
 
       
-        <p>这个wiki页面的重点介绍AxisBase类，它是XAxis（X轴）和YAxis（Y轴）两者的基类，在v2.0.0中引入。</p>
-<p>下面提到的以下方法可以应用于两个轴。</p>
-<p>这个轴类允许特定的样式，包括（可以包括）以下组件/部件：</p>
-<ul>
-<li>标签（以垂直（y轴）或水平（x轴）对齐绘制），其中包含轴描述值</li>
-<li>所谓的“轴线”被直接绘制在标签上并与之平行</li>
-<li>“网格线”，各自源自水平方向的轴标签</li>
-<li>LimitLines允许提供特殊信息，如边界或约束</li>
-</ul>
-<h2 id="控制应绘制哪些零件（轴）"><a href="#控制应绘制哪些零件（轴）" class="headerlink" title="控制应绘制哪些零件（轴）"></a>控制应绘制哪些零件（轴）</h2><ul>
-<li>setEnabled(boolean enabled)：设置轴启用或禁用。如果禁用，无论任何其他设置如何，都不会绘制轴的任何部分。</li>
-<li>setDrawLabels(boolean enabled)：将其设置为true可以绘制轴的标签。</li>
-<li>setDrawAxisLine(boolean enabled)：如果沿着轴（轴线）的线应该被绘制，则将其设置为true。</li>
-<li>setDrawGridLines(boolean enabled)：将其设置为true可以绘制轴的网格线。</li>
-</ul>
+        <p>自版本v3.0.0以来，图表中的标记（弹出式视图）由IMarker界面表示。</p>
+<h2 id="IMarker界面"><a href="#IMarker界面" class="headerlink" title="IMarker界面"></a>IMarker界面</h2><p>此界面允许您创建在图表中突出显示的条目上显示的自定义标记视图。界面提供的方法如下：</p>
 <a id="more"></a>
-<h2 id="自定义轴范围（最小-最大）"><a href="#自定义轴范围（最小-最大）" class="headerlink" title="自定义轴范围（最小/最大）"></a>自定义轴范围（最小/最大）</h2><ul>
-<li>setAxisMaximum(float max)：设置此轴的自定义最大值。如果设置，此值将不会根据提供的数据自动计算。</li>
-<li>resetAxisMaximum()：调用此命令来撤销先前设置的最大值。通过这样做，您将再次允许轴自动计算它的最大值。</li>
-<li>setAxisMinimum(float min)：设置此轴的自定义最小值。如果设置，此值将不会根据提供的数据自动计算。</li>
-<li>resetAxisMinimum()：调用此命令来撤消先前设置的最小值。通过这样做，您将再次允许轴自动计算它的最小值。</li>
-<li>setStartAtZero(boolean enabled)：已弃用 - 使用setAxisMinValue(…)或setAxisMaxValue(…)替代。</li>
-<li>setInverted(boolean enabled)：如果设置为true，则该轴将反转，这意味着最高值将在底部，最低值在顶部。</li>
-<li>setSpaceTop(float percent)：与轴上的最高值相比，设置图表中最高值的顶部间距（以总轴范围的百分比表示）。</li>
-<li>setSpaceBottom(float percent)：与轴上的最低值相比，设置图表中最低值的底部间距（以总轴范围的百分比表示）。</li>
-<li>setShowOnlyMinMax(boolean enabled)：如果启用，该轴将仅显示其最小值和最大值。这将忽略/覆盖定义的标签计数（如果不强制）。</li>
-<li>setLabelCount(int count, boolean force)：设置y轴的标签数量。请注意，这个数字是不固定的（如果强制== false），只能近似。如果强制启用（true），则绘制精确的指定标签计数 - 这可能导致轴上的数字不均匀。</li>
-<li>setPosition(YAxisLabelPosition pos)：设置绘制轴标签的位置。INSIDE_CHART或OUTSIDE_CHART。</li>
-<li>setGranularity(float gran)：设置y轴值之间的最小间隔。这可以用于在放大到为轴设置的小数位数不再允许区分两个轴值的点时避免重复值。</li>
-<li>setGranularityEnabled(boolean enabled)：启用限制放大时y轴间隔的粒度特征。默认值：false</li>
-</ul>
-<h2 id="样式-修改轴"><a href="#样式-修改轴" class="headerlink" title="样式/修改轴"></a>样式/修改轴</h2><ul>
-<li>setTextColor(int color)：设置轴标签的颜色。</li>
-<li>setTextSize(float size)：设置dp中轴标签的文本大小。</li>
-<li>setTypeface(Typeface tf)：设置Typeface轴标签的自定义。</li>
-<li>setGridColor(int color)：设置此轴的网格线的颜色。</li>
-<li>setGridLineWidth(float width)：设置此轴的网格线的宽度。</li>
-<li>setAxisLineColor(int color)：设置此轴的轴线的颜色。</li>
-<li>setAxisLineWidth(float width)：设置此轴的轴线的宽度。</li>
-<li>enableGridDashedLine(float lineLength, float spaceLength, float phase)：允许以虚线模式绘制网格线，例如像这样的“ - - - - - ”。“lineLength”控制线段的长度，“spaceLength”控制线间的空间，“phase”控制起点。</li>
-</ul>
-<h2 id="格式化轴值"><a href="#格式化轴值" class="headerlink" title="格式化轴值"></a>格式化轴值</h2><ul>
-<li>对于格式化轴值，可以使用IAxisValueFormatter界面，它的介绍在这里。</li>
-<li>您可以使用axis.setValueFormatter(IAxisValueFormatter formatter)方法将自定义格式化程序设置给轴。</li>
-</ul>
-<h2 id="限制线"><a href="#限制线" class="headerlink" title="限制线"></a>限制线</h2><p>这两个轴支持所谓的LimitLines允许呈现特殊信息，如边界或约束。LimitLines添加到YAxis水平方向，并在垂直方向添加到XAxis。下边是您如何LimitLines从轴上添加和删​​除：</p>
-<pre><code>addLimitLine(LimitLine l)：LimitLine向此轴添加新的。
-removeLimitLine(LimitLine l)：LimitLine从该轴移除指定的。
-更多添加/删除可用的方法。
-setDrawLimitLinesBehindData(boolean enabled)：允许控制LimitLines和实际数据之间的z顺序。如果设置为true，则将LimitLines其拖放到实际数据之后，否则返回顶部。默认值：false
-</code></pre><p>限制线（类LimitLine）（名称可能指示）可以使用简单线条为用户提供附加信息。</p>
-<p>例如，您的图表可能会显示用户使用应用程序记录的各种血压测量结果。为了通知用户，超过140 mmHg的收缩压被认为是健康风险，您可以添加LimitLine140以提供该信息。</p>
-<h2 id="示例代码"><a href="#示例代码" class="headerlink" title="示例代码"></a>示例代码</h2><pre><code>YAxis leftAxis = chart.getAxisLeft();
+<pre><code>public interface IMarker {
 
-LimitLine ll = new LimitLine(140f, &quot;Critical Blood Pressure&quot;);
-ll.setLineColor(Color.RED);
-ll.setLineWidth(4f);
-ll.setTextColor(Color.BLACK);
-ll.setTextSize(12f);
-// .. and more styling options
 
-leftAxis.addLimitLine(ll);
-</code></pre>
+/** 
+ *  @return您希望IMarker在x轴和y轴上具有所需的（一般）偏移量。
+ *    通过返回x： - （width / 2），您将水平放置IMarker。
+ *    返回y： - （height / 2），您将垂直居中放置IMarker。
+ */ 
+ MPPointF getOffset（）;     
+
+
+/** 
+ * @return在特定“点”处绘制的偏移量。这样可以对标记位置进行条件调整。
+ * 如果没有进行调整，返回getOffset（）。
+ * 
+ * @param posX这是标记想要绘制的X位置。
+ * 您可以根据此参数有条件地调整偏移量。
+ * @param posY这是标记想要绘制的X位置。
+ * 您可以根据此参数有条件地调整偏移量。
+ */ 
+ MPPointF getOffsetForDrawingAtPos（ float posX， float posY）;     
+
+
+/** 
+ * 此方法使指定的自定义IMarker可以在每次重新绘制IMarker时更新其内容。
+ * 
+ * @param e IMarker所属的条目。这也可以是Entry的任何子类，如BarEntry或
+ * CandleEntry，只需在运行时将其转换。
+ * @param highlight该突出显示对象包含有关突出显示的值的信息，例如数据集索引，
+ * 选定范围或堆栈索引（仅堆叠条形条目）。
+ */ 
+ void refreshContent（ Entry e， Highlight highlight）;     
+
+
+/** 
+ *使用给定的Canvas对象在屏幕上的给定位置绘制IMarker。
+ * 
+ * @param canvas 
+ * @param posX 
+ * @param posY 
+ * / 
+ void draw（ Canvas canvas， float posX， float posY）;     
+</code></pre><p>}</p>
+<h2 id="创建MarkerView"><a href="#创建MarkerView" class="headerlink" title="创建MarkerView"></a>创建MarkerView</h2><p>为了创建自定义标记视图，您需要创建一个实现该IMarker接口的新类：</p>
+<pre><code>public class YourMarkerView implements IMarker { ... }
+</code></pre><p>从界面提供的方法返回的内容取决于您的个人需求。看看上面显示的方法文档，以便更好地了解。</p>
+<p>我除了实现该IMarker接口之外，还可以创建自己的类并通过下面提到的预定义标记之一进行扩展。这种方法更容易，并且不需要实现IMarker接口提供的所有方法。只有特定的方法可以被覆盖和定制。最重要的是重写refreshContent(…)方法来调整由标记绘制的数据。一个简单的例子可能如下所示：</p>
+<pre><code>public  class  YourMarkerView  扩展了 MarkerView {
+
+    private TextView tvContent;
+
+    public MyMarkerView(Context context, int layoutResource) {
+        super(context, layoutResource);
+
+        //找到你的布局组件 
+         tvContent = (TextView) findViewById(R.id.tvContent);
+    }
+
+    //回调每次的MarkerView重绘，可用于更新
+    //内容（用户界面）
+    @Override
+    public void refreshContent(Entry e, Highlight highlight) {
+
+        tvContent.setText(&quot;&quot; + e.getY());
+
+        //这将执行必要的布局
+         super.refreshContent(e, highlight);
+    }
+
+     private MPPointF mOffset; 
+
+    @Override
+    public MPPointF getOffset() {
+
+        if(mOffset == null) {
+            //水平和垂直 
+           mOffset = new MPPointF(-(getWidth() / 2), -getHeight());
+        }
+
+        return mOffset;
+    }
+}
+</code></pre><h2 id="获取-设置标记"><a href="#获取-设置标记" class="headerlink" title="获取/设置标记"></a>获取/设置标记</h2><p>为了将标记设置为图表，请使用以下setMarker(…)方法：</p>
+<pre><code>IMarker marker = new YourMarkerView();
+</code></pre><p>chart.setMarker(marker);<br>要访问设置到图表的现有标记，请使用以下getMarker()方法：</p>
+<pre><code>IMarker marker = chart.getMarker();
+</code></pre><h2 id="预定标记"><a href="#预定标记" class="headerlink" title="预定标记"></a>预定标记</h2><p>除了创建自己的自定义标记视图外，该库还提供了一些预定义的标记，以便更快速地使用。那些标记包括：</p>
+<ul>
+<li>MarkerView：基本标记。允许提供在图表上呈现的表示标记的布局资源。扩展此类并覆盖refreshContent(…)调整标记数据的方法。</li>
+<li>MarkerImage：用于绘制图像的标记。允许提供在图表上呈现代表标记的可绘制资源。扩展此类并覆盖refreshContent(…)调整标记数据的方法。</li>
+</ul>
+<h2 id="传统MarkerView"><a href="#传统MarkerView" class="headerlink" title="传统MarkerView"></a>传统MarkerView</h2><p>在v3.0.0之前的版本中，MarkerView该类负责在图表中突出显示的位置绘制标记。有关此类的详细信息，请访问旧的MarkerView wiki页面。</p>
+
       
     </div>
 
@@ -541,8 +574,8 @@ leftAxis.addLimitLine(ll);
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/08/08/突出显示值/" rel="next" title="3.突出显示值">
-                <i class="fa fa-chevron-left"></i> 3.突出显示值
+              <a href="/2017/08/14/动画/" rel="next" title="16.动画">
+                <i class="fa fa-chevron-left"></i> 16.动画
               </a>
             
           </div>
@@ -550,10 +583,6 @@ leftAxis.addLimitLine(ll);
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/08/09/x轴/" rel="prev" title="5.X轴（XAxis）">
-                5.X轴（XAxis） <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -714,7 +743,7 @@ leftAxis.addLimitLine(ll);
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#控制应绘制哪些零件（轴）"><span class="nav-number">1.</span> <span class="nav-text">控制应绘制哪些零件（轴）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#自定义轴范围（最小-最大）"><span class="nav-number">2.</span> <span class="nav-text">自定义轴范围（最小/最大）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#样式-修改轴"><span class="nav-number">3.</span> <span class="nav-text">样式/修改轴</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#格式化轴值"><span class="nav-number">4.</span> <span class="nav-text">格式化轴值</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#限制线"><span class="nav-number">5.</span> <span class="nav-text">限制线</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#示例代码"><span class="nav-number">6.</span> <span class="nav-text">示例代码</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#IMarker界面"><span class="nav-number">1.</span> <span class="nav-text">IMarker界面</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#创建MarkerView"><span class="nav-number">2.</span> <span class="nav-text">创建MarkerView</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#获取-设置标记"><span class="nav-number">3.</span> <span class="nav-text">获取/设置标记</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#预定标记"><span class="nav-number">4.</span> <span class="nav-text">预定标记</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#传统MarkerView"><span class="nav-number">5.</span> <span class="nav-text">传统MarkerView</span></a></li></ol></div>
             
 
           </div>

@@ -97,7 +97,7 @@
 <meta property="og:url" content="http://jeffy12138.github.io/2017/08/14/动画/index.html">
 <meta property="og:site_name" content="Jeffy&#39;s Blog">
 <meta property="og:description" content="注意：仅针对API级别11（Android 3.0.x）和更高版本的动画。 在较低的Android版本上，动画将不会执行（但不会崩溃）。 所有图表类型支持可用于以令人敬畏的方式创建/构建图表的动画。存在三种不同类型的动画方法，分别对x或y轴进行动画化：  animateX(int durationMillis)：在横轴上对图表进行动画处理，这意味着图表将在从左到右的指定时间内建立。 animate">
-<meta property="og:updated_time" content="2017-08-15T07:51:14.146Z">
+<meta property="og:updated_time" content="2017-08-15T07:56:47.281Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="16.动画">
 <meta name="twitter:description" content="注意：仅针对API级别11（Android 3.0.x）和更高版本的动画。 在较低的Android版本上，动画将不会执行（但不会崩溃）。 所有图表类型支持可用于以令人敬畏的方式创建/构建图表的动画。存在三种不同类型的动画方法，分别对x或y轴进行动画化：  animateX(int durationMillis)：在横轴上对图表进行动画处理，这意味着图表将在从左到右的指定时间内建立。 animate">
@@ -462,14 +462,12 @@ mChart.animateXY(3000, 3000);//动画水平和垂直3000毫秒
  EaseInOutBounce，
 }
 </code></pre><p>基本上，有两种方法来缓解你的动画：</p>
-<p>###1.预定义的缓解选项：（此代码将在任何Android版本上运行）###</p>
-<pre><code>public void animateY(int durationmillis, Easing.EasingOption option);
+<h3 id="1-预定义的缓解选项：（此代码将在任何Android版本上运行）"><a href="#1-预定义的缓解选项：（此代码将在任何Android版本上运行）" class="headerlink" title="1.预定义的缓解选项：（此代码将在任何Android版本上运行）"></a>1.预定义的缓解选项：（此代码将在任何Android版本上运行）</h3><pre><code>public void animateY(int durationmillis, Easing.EasingOption option);
 </code></pre><p>使用预定义的缓动选项调用任何动画方法：</p>
 <pre><code>//使两个轴的动画化与缓和 
 mChart.animateY(3000, Easing.EasingOption.EaseOutBack);
 </code></pre><p>当您希望您的代码在Android 3.0（API级别11）下运行时始终使用预定义的动画宽松Easing.EasingOption。</p>
-<p>###2.自定义宽松功能：（自定义缓存功能将在Android 3.0以下崩溃）###</p>
-<pre><code>public void animateY(int durationmillis, EasingFunction function); 
+<h3 id="2-自定义宽松功能：（自定义缓存功能将在Android-3-0以下崩溃）"><a href="#2-自定义宽松功能：（自定义缓存功能将在Android-3-0以下崩溃）" class="headerlink" title="2.自定义宽松功能：（自定义缓存功能将在Android 3.0以下崩溃）"></a>2.自定义宽松功能：（自定义缓存功能将在Android 3.0以下崩溃）</h3><pre><code>public void animateY(int durationmillis, EasingFunction function); 
 </code></pre><p>创建您自己创建自己的缓和功能类并实现宽松的功能EasingFunction界面：</p>
 <pre><code>/**
  * Interface for creating custom made easing functions. 
@@ -549,8 +547,8 @@ mChart.animateY(3000, new MyEasingFunction());
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/08/14/动态和实时数据/" rel="next" title="14.动态和实时数据">
-                <i class="fa fa-chevron-left"></i> 14.动态和实时数据
+              <a href="/2017/08/14/修改视口/" rel="next" title="15.修改视口">
+                <i class="fa fa-chevron-left"></i> 15.修改视口
               </a>
             
           </div>
@@ -558,6 +556,10 @@ mChart.animateY(3000, new MyEasingFunction());
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/08/15/MarkerView（Popup-View）/" rel="prev" title="17.MarkerView（Popup View）">
+                17.MarkerView（Popup View） <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -634,7 +636,7 @@ mChart.animateY(3000, new MyEasingFunction());
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">20</span>
+                <span class="site-state-item-count">21</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -718,7 +720,7 @@ mChart.animateY(3000, new MyEasingFunction());
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#动画宽松"><span class="nav-number">1.</span> <span class="nav-text">动画宽松</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#动画宽松"><span class="nav-number">1.</span> <span class="nav-text">动画宽松</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-预定义的缓解选项：（此代码将在任何Android版本上运行）"><span class="nav-number">1.1.</span> <span class="nav-text">1.预定义的缓解选项：（此代码将在任何Android版本上运行）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-自定义宽松功能：（自定义缓存功能将在Android-3-0以下崩溃）"><span class="nav-number">1.2.</span> <span class="nav-text">2.自定义宽松功能：（自定义缓存功能将在Android 3.0以下崩溃）</span></a></li></ol></li></ol></div>
             
 
           </div>
