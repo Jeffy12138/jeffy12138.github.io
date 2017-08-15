@@ -323,6 +323,156 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://jeffy12138.github.io/2017/08/14/动态和实时数据/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="吴纪飞">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/me.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Jeffy's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/08/14/动态和实时数据/" itemprop="url">14.动态和实时数据</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-08-14T18:15:07+08:00">
+                2017-08-14
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Android/" itemprop="url" rel="index">
+                    <span itemprop="name">Android</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p>自v1.6.3起可用 - 不断改进。</p>
+<p>为了将新数据添加到图表或动态删除数据，有多种方法可以将Entry对象从现有对象DataSet添加或删除或从现有ChartData对象添加或删除DataSet对象。</p>
+<h2 id="动态添加-删除数据的可能性"><a href="#动态添加-删除数据的可能性" class="headerlink" title="动态添加/删除数据的可能性"></a>动态添加/删除数据的可能性</h2><p>Class DataSet（和所有子类）：</p>
+<ul>
+<li>addEntry(Entry e)：将给定的Entry对象添加到DataSet。</li>
+</ul>
+<p>Class ChartData（和所有子类）：</p>
+<ul>
+<li>addEntry(Entry e, int dataSetIndex)：将给定的数据集添加Entry到DataSet指定的数据集索引。</li>
+</ul>
+<ul>
+<li>addDataSet(DataSet d)：将给定DataSet对象添加到ChartData对象。</li>
+</ul>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/08/14/动态和实时数据/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
     <link itemprop="mainEntityOfPage" href="http://jeffy12138.github.io/2017/08/14/Legend/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -412,43 +562,20 @@
 
       
         
-          
-            <p>默认情况下，所有图表类型都支持图例，并在为图表设置数据后自动生成和绘制图例。Legend通常由通过一个标签的形式/形状表示多个条目的每一个。</p>
+          <p>默认情况下，所有图表类型都支持图例，并在为图表设置数据后自动生成和绘制图例。Legend通常由通过一个标签的形式/形状表示多个条目的每一个。</p>
 <p>自动生成的图例包含的条目数取决于不同颜色（跨所有DataSet对象）以及DataSet标签的数量。标签Legend取决于为DataSet图表中的已使用对象设置的标签。如果没有DataSet指定对象的标签，图表将自动生成。如果使用多种颜色DataSet，那么这些颜色是分组的，只能由（属于）一个标签描述。</p>
 <p>对于自定义Legend，您可以Legend使用以下getLegend()方法从图表中检索对象：</p>
 <pre><code>Legend legend = chart.getLegend();
 </code></pre><h2 id="控制是否绘制图例"><a href="#控制是否绘制图例" class="headerlink" title="控制是否绘制图例"></a>控制是否绘制图例</h2><ul>
-<li><p>setEnabled(boolean enabled)：设置Legend启用或禁用。如果禁用，Legend将不会被绘制。</p>
-<h2 id="造型-修改图例"><a href="#造型-修改图例" class="headerlink" title="造型/修改图例"></a>造型/修改图例</h2></li>
-<li><p>setTextColor(int color)：设置图例标签的颜色。</p>
-</li>
-<li>setTextSize(float size)：设置dp中图例标签的文本大小。</li>
-<li><p>setTypeface(Typeface tf)：设置Typeface图例标签的自定义。</p>
-<h2 id="包装-剪裁避免"><a href="#包装-剪裁避免" class="headerlink" title="包装/剪裁避免"></a>包装/剪裁避免</h2></li>
-<li><p>setWordWrapEnabled(boolean enabled)：如果启用，图例的内容将不会剪辑在图表边界之外，而是创建一个新行。请注意，这降低了性能，仅适用于图表下方的图例。</p>
-</li>
-<li><p>setMaxSizePercent(float maxSize)：以百分比形式设置整个图表视图中的最大相对大小。默认值：0.95f（95％）</p>
-<h2 id="自定义图例"><a href="#自定义图例" class="headerlink" title="自定义图例"></a>自定义图例</h2></li>
-<li><p>setPosition(LegendPosition pos)：设置LegendPosition它Legend应该出现的位置。选择RIGHT_OF_CHART，RIGHT_OF_CHART_CENTER，RIGHT_OF_CHART_INSIDE，BELOW_CHART_LEFT，BELOW_CHART_RIGHT，BELOW_CHART_CENTER或PIECHART_CENTER（PieChart仅），…等等。</p>
-</li>
-<li>setForm(LegendForm shape)：设置LegendForm应该使用的。这是绘制在图例标签旁边的形状，DataSet其图例条目的颜色表示。在SQUARE，CIRCLE或LINE之间进行选择。</li>
-<li>setFormSize(float size)：设置dp中的图例形式的大小。</li>
-<li>setXEntrySpace(float space)：设置横轴上图例项之间的空格。</li>
-<li>setYEntrySpace(float space)：设置纵轴上的图例项之间的空格。</li>
-<li>setFormToTextSpace(float space)：设置图例标签和相应图例形式之间的空格。</li>
-<li>setWordWrapEnabled(boolean enabled)传说中的文字是否包裹？/目前仅支持BelowChartLeft，BelowChartRight，BelowChartCenter支持。/你可能希望在换行时设置maxSizePercent，以设置文本包装的点。</li>
+<li>setEnabled(boolean enabled)：设置Legend启用或禁用。如果禁用，Legend将不会被绘制。</li>
 </ul>
-<h2 id="设置自定义标签和颜色"><a href="#设置自定义标签和颜色" class="headerlink" title="设置自定义标签和颜色"></a>设置自定义标签和颜色</h2><ul>
-<li>setCustom(int[] colors, String[] labels)：设置自定义图例的标签和颜色数组。颜色计数应符合标签计数。每种颜色均为相同索引绘制的形状。空标签将启动一个组。A（-2）颜色将避免绘制表单这将禁用从数据集自动计算图例标签和颜色的功能。呼叫resetCustom()重新启用自动计算（然后notifyDataSetChanged()需要再次自动计算图例）</li>
-<li>resetCustom()：调用此功能将禁用自定义图例标签（由设置setCustom(…)）。相反，标签将再次自动计算（notifyDataSetChanged()调用后）。</li>
-<li><p>setExtra(int[] colors, String[] labels)：设置在计算图例后将附加到自动计算颜色和标签数组末尾的颜色和标签。（如果已经计算了图例，则需要调用notifyDataSetChanged()以使更改生效）</p>
-<h2 id="例"><a href="#例" class="headerlink" title="例"></a>例</h2><p>  Legend l = chart.getLegend();<br>  l.setFormSize(10f); // 设置图例的形状/形状<br>  l.setForm(LegendForm.CIRCLE); // 设置什么类型的形式/形状应该使用<br>  l.setPosition(LegendPosition.BELOW_CHART_LEFT);<br>  l.setTypeface(…);<br>  l.setTextSize(12f);<br>  l.setTextColor(Color.BLACK);<br>  l.setXEntrySpace(5f); // 设置x轴上的图例项之间的空格<br>  l.setYEntrySpace(5f); // 设置y轴上图例项之间的空格</p>
-<p>  // 设置自定义标签和颜色<br>  l.setCustom(ColorTemplate.VORDIPLOM_COLORS, new String[] { “Set1”, “Set2”, “Set3”, “Set4”, “Set5” });</p>
-<p>  // and many more…</p>
-</li>
-</ul>
-
-          
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/08/14/Legend/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1653,158 +1780,6 @@ YAxis yAxis = radarChart.getYAxis(); //这个方法只有radarchart
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://jeffy12138.github.io/2017/08/08/轴（AxisBase）/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="吴纪飞">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/me.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Jeffy's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/08/08/轴（AxisBase）/" itemprop="url">4.轴（AxisBase）</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-08-08T19:17:09+08:00">
-                2017-08-08
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Android/" itemprop="url" rel="index">
-                    <span itemprop="name">Android</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>这个wiki页面的重点介绍AxisBase类，它是XAxis（X轴）和YAxis（Y轴）两者的基类，在v2.0.0中引入。</p>
-<p>下面提到的以下方法可以应用于两个轴。</p>
-<p>这个轴类允许特定的样式，包括（可以包括）以下组件/部件：</p>
-<ul>
-<li>标签（以垂直（y轴）或水平（x轴）对齐绘制），其中包含轴描述值</li>
-<li>所谓的“轴线”被直接绘制在标签上并与之平行</li>
-<li>“网格线”，各自源自水平方向的轴标签</li>
-<li>LimitLines允许提供特殊信息，如边界或约束</li>
-</ul>
-<h2 id="控制应绘制哪些零件（轴）"><a href="#控制应绘制哪些零件（轴）" class="headerlink" title="控制应绘制哪些零件（轴）"></a>控制应绘制哪些零件（轴）</h2><ul>
-<li>setEnabled(boolean enabled)：设置轴启用或禁用。如果禁用，无论任何其他设置如何，都不会绘制轴的任何部分。</li>
-<li>setDrawLabels(boolean enabled)：将其设置为true可以绘制轴的标签。</li>
-<li>setDrawAxisLine(boolean enabled)：如果沿着轴（轴线）的线应该被绘制，则将其设置为true。</li>
-<li>setDrawGridLines(boolean enabled)：将其设置为true可以绘制轴的网格线。</li>
-</ul>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/08/08/轴（AxisBase）/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -1854,7 +1829,7 @@ YAxis yAxis = radarChart.getYAxis(); //这个方法只有radarchart
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">17</span>
+                <span class="site-state-item-count">18</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
